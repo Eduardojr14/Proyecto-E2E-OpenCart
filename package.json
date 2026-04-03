@@ -1,0 +1,19 @@
+{
+  "name": "proyecto-e2e-opencart",
+  "version": "1.0.0",
+  "description": "Proyecto de automatización E2E + API Testing con Cypress para OpenCart",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "keywords": ["cypress", "e2e", "automation", "opencart"],
+  "author": "Eduardo Parra",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^15.13.0"
+  }
+}
+
+
+
