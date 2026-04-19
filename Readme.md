@@ -68,11 +68,49 @@ Este proyecto forma parte de mi portafolio como **QA Functional Analyst / QA Aut
 
 ```
 PROYECTO-E2E-OPENCART/
- ├── cypress/
- ├── docs/               ← Documentación completa
- ├── cypress.config.js
- ├── package.json
- ├── README.md           ← Este archivo
+│
+├── cypress/
+│   ├── e2e/
+│   │   ├── login/
+│   │   ├── register/
+│   │   ├── search/
+│   │   ├── wishlist/
+│   │   ├── cart/
+│   │   ├── checkout/
+│   │   └── api/
+│   │
+│   ├── pages/                ← Page Object Model (POM)
+│   │   ├── HomePage.js
+│   │   ├── LoginPage.js
+│   │   ├── RegisterPage.js
+│   │   ├── ProductPage.js
+│   │   ├── CartPage.js
+│   │   ├── CheckoutPage.js
+│   │   ├── SearchPage.js
+│   │   └── WishlistPage.js
+│   │
+│   ├── fixtures/             ← Datos de prueba
+│   ├── support/
+│   │   ├── commands.js       ← Custom Commands
+│   │   └── e2e.js
+│   │
+│   └── api/                  ← Requests API (cy.request)
+│
+├── docs/                     ← Documentación completa
+│   ├── Plan-de-Pruebas.md
+│   ├── TC-Flujo-Login.md
+│   ├── TC-Flujo-Registro.md
+│   ├── TC-Flujo-Busqueda.md
+│   ├── TC-Flujo-Wishlist.md
+│   ├── TC-Flujo-Carrito.md
+│   ├── TC-Flujo-Checkout.md
+│   ├── TC-Flujo-API-Testing.md
+│   └── Diagramas/
+│
+├── cypress.config.js
+├── package.json
+└── README.md                 ← README principal
+
 ```
 
 ---
