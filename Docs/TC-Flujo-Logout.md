@@ -1,157 +1,142 @@
-🧪 Casos de Prueba – Flujo de Logout (Cerrar Sesión)
-Proyecto: OpenCart – Cypress E2E
-Autor: Eduardo José Parra Perdomo
-Fecha: 17/04/2026
+# 📄 **TC-Flujo-Logout.md**  
+### **Flujo de Logout (Cerrar Sesión) – OpenCart E2E (UI)**  
+**Proyecto:** OpenCart – Cypress E2E  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-📘 Índice
-Objetivo del Flujo
+---
 
-Alcance
+# 📘 **Índice**
 
-Precondiciones
+1. Objetivo del Flujo  
+2. Alcance  
+3. Precondiciones  
+4. Casos de Prueba UI  
+   - TC‑01 – Acceso a Logout  
+   - TC‑02 – Logout exitoso  
+   - TC‑03 – Validar mensaje de cierre de sesión  
+   - TC‑04 – Validar acceso restringido tras logout  
+   - TC‑05 – Validar comportamiento del carrito  
+5. Notas de Negocio  
+6. Evidencias  
 
-Casos de Prueba UI
+---
 
-TC-01 – Acceso a Logout
+# 🎯 **1. Objetivo del Flujo**
 
-TC-02 – Logout exitoso
-
-TC-03 – Validar mensaje de cierre de sesión
-
-TC-04 – Validar que no se puede acceder a páginas protegidas
-
-TC-05 – Validar que el carrito persiste o se limpia (según configuración)
-
-Casos de Prueba API (si aplica)
-
-Casos de Prueba SQL (si aplica)
-
-Notas de Negocio
-
-Evidencias
-
-🎯 Objetivo del Flujo
 Validar que un usuario autenticado puede cerrar sesión correctamente y que el sistema:
 
-Limpia la sesión
+- Limpia la sesión  
+- Muestra el mensaje correcto  
+- Evita el acceso a páginas protegidas  
+- Mantiene o limpia el carrito según la configuración del sitio  
 
-Muestra el mensaje correcto
+---
 
-Evita el acceso a páginas protegidas
+# 📌 **2. Alcance**
 
-Mantiene o limpia el carrito según la configuración del sitio
+- Cierre de sesión desde el menú  
+- Validación de mensaje  
+- Validación de redirecciones  
+- Validación de acceso restringido  
+- Validación del estado del carrito  
 
-📌 Alcance
-Cierre de sesión desde el menú
+---
 
-Validación de mensaje
+# 🔧 **3. Precondiciones**
 
-Validación de redirecciones
+- Usuario registrado  
+- Usuario autenticado  
+- Acceso a OpenCart Demo  
 
-Validación de acceso restringido
+---
 
-🔧 Precondiciones
-Usuario registrado
+# 🧪 **4. Casos de Prueba UI**
 
-Usuario autenticado
+---
 
-Acceso a OpenCart Demo
+## 🟦 **TC‑01 – Acceso a Logout**
 
-🧪 Casos de Prueba UI
-🟦 TC-01 – Acceso a Logout
-Objetivo: Validar que el usuario puede acceder a la opción de Logout.
+**Objetivo:** Validar que el usuario puede acceder a la opción de Logout.
 
-Pasos
-Iniciar sesión
+**Pasos:**
 
-Hacer clic en My Account
+1. Iniciar sesión  
+2. Hacer clic en **My Account**  
+3. Seleccionar **Logout**  
 
-Seleccionar Logout
+**Validaciones:**
 
-Validaciones
-Redirección a página de Logout
+- Redirección a página de Logout  
+- Título: *Account Logout*  
 
-Título: Account Logout
+---
 
-🟦 TC-02 – Logout exitoso
-Objetivo: Validar que el cierre de sesión se realiza correctamente.
+## 🟦 **TC‑02 – Logout exitoso**
 
-Validaciones
-Mensaje: You have been logged off your account.
+**Objetivo:** Validar que el cierre de sesión se realiza correctamente.
 
-Botón Continue visible
+**Validaciones:**
 
-Header cambia a estado no autenticado
+- Mensaje: *You have been logged off your account.*  
+- Botón **Continue** visible  
+- Header cambia a estado no autenticado  
 
-🟦 TC-03 – Validar mensaje de cierre de sesión
-Objetivo: Confirmar que el mensaje es claro y correcto.
+---
 
-Validaciones
-Mensaje visible
+## 🟦 **TC‑03 – Validar mensaje de cierre de sesión**
 
-No aparecen datos del usuario
+**Objetivo:** Confirmar que el mensaje es claro y correcto.
 
-🟦 TC-04 – Validar que no se puede acceder a páginas protegidas
-Objetivo: Validar que el usuario no puede acceder a páginas que requieren autenticación.
+**Validaciones:**
 
-Pasos
+- Mensaje visible  
+- No aparecen datos del usuario  
+
+---
+
+## 🟦 **TC‑04 – Validar acceso restringido tras logout**
+
+**Objetivo:** Validar que el usuario no puede acceder a páginas que requieren autenticación.
+
+**Pasos:**
+
 Intentar acceder a:
 
-/index.php?route=account/account
+- `/index.php?route=account/account`  
+- `/index.php?route=account/order`  
+- `/index.php?route=account/wishlist`  
 
-/index.php?route=account/order
+**Validaciones:**
 
-/index.php?route=account/wishlist
+- Redirección a Login  
+- No muestra datos del usuario  
 
-Validaciones
-Redirección a Login
+---
 
-No muestra datos del usuario
+## 🟦 **TC‑05 – Validar comportamiento del carrito tras logout**
 
-🟦 TC-05 – Validar comportamiento del carrito tras logout
-Objetivo: Validar si el carrito se mantiene o se limpia según la configuración.
+**Objetivo:** Validar si el carrito se mantiene o se limpia según la configuración.
 
-Validaciones
-Carrito vacío o
+**Validaciones:**
 
-Carrito persiste (según demo)
+- Carrito vacío **o** carrito persiste (según demo)  
+- No genera errores  
+- No muestra datos del usuario  
 
-No genera errores
+---
 
-🧪 Casos de Prueba API
-(Solo si tu demo expone endpoint de logout)
+# 🧾 **5. Notas de Negocio**
 
-🟦 API-TC-01 – Logout vía API
-Validaciones
-Código 200
+- Logout debe ser inmediato  
+- No debe dejar datos sensibles en memoria  
+- No debe permitir acceso a páginas protegidas  
+- Debe mostrar mensaje claro  
 
-Token invalidado
+---
 
-No permite acceder a endpoints protegidos
+# 📸 **6. Evidencias**
 
-🧪 Casos de Prueba SQL
-(Solo si existe tabla de sesiones o auditoría)
 
-🟦 SQL-TC-01 – Validar cierre de sesión
-sql
-SELECT * 
-FROM oc_customer_login 
-WHERE customer_id = {ID}
-ORDER BY date_added DESC;
-Validaciones
-Registro de logout (si aplica)
 
-IP correcta
 
-Fecha correcta
-
-🧾 Notas de Negocio
-Logout debe ser inmediato
-
-No debe dejar datos sensibles en memoria
-
-No debe permitir acceso a páginas protegidas
-
-Debe mostrar mensaje claro
-
-📸 Evidencias
