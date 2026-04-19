@@ -7,6 +7,8 @@ module.exports = defineConfig({
     viewportHeight: 720,
     video: true,
     screenshotOnRunFailure: true,
+    pageLoadTimeout: 120000,
+    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
       // Aquí puedes agregar plugins si los necesitas
     },
