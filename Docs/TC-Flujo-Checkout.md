@@ -1,284 +1,298 @@
-🧪 Casos de Prueba – Flujo de Checkout Completo
-Proyecto: OpenCart – Cypress E2E + API + SQL
-Autor: Eduardo José Parra Perdomo
-Fecha: 17/04/2026
+# 📄 **TC-Flujo-Checkout.md**  
+### **Flujo de Checkout Completo – OpenCart E2E + API + SQL**  
+**Proyecto:** OpenCart – Cypress E2E + API + SQL  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-📘 Índice
-Objetivo del Flujo
+---
 
-Alcance
+# 📘 **Índice**
 
-Precondiciones
+1. Objetivo del Flujo  
+2. Alcance  
+3. Precondiciones  
+4. Casos de Prueba UI  
+   - TC‑01 – Acceso al Checkout  
+   - TC‑02 – Login desde Checkout  
+   - TC‑03 – Billing Details  
+   - TC‑04 – Delivery Details  
+   - TC‑05 – Delivery Method  
+   - TC‑06 – Payment Method  
+   - TC‑07 – Confirm Order  
+   - TC‑08 – Validación de página de éxito  
+5. Casos de Prueba API  
+6. Casos de Prueba SQL  
+7. Notas de Negocio  
+8. Evidencias  
 
-Casos de Prueba UI
+---
 
-TC-01 – Acceso al Checkout
+# 🎯 **1. Objetivo del Flujo**
 
-TC-02 – Login desde Checkout
-
-TC-03 – Billing Details
-
-TC-04 – Delivery Details
-
-TC-05 – Delivery Method
-
-TC-06 – Payment Method
-
-TC-07 – Confirm Order
-
-TC-08 – Validación de página de éxito
-
-Casos de Prueba API
-
-Casos de Prueba SQL
-
-Notas de Negocio
-
-Evidencias
-
-🎯 Objetivo del Flujo
 Validar que un usuario autenticado puede completar el proceso de compra desde el carrito hasta la confirmación del pedido, asegurando:
 
-Integridad de datos
+- Integridad de datos  
+- Cálculo correcto de totales  
+- Flujo completo sin errores  
+- Registro correcto del pedido en la base de datos  
+- Consistencia entre UI, API y SQL  
 
-Cálculo correcto de totales
+---
 
-Flujo completo sin errores
+# 📌 **2. Alcance**
 
-Registro correcto del pedido en la base de datos
+- Login desde Checkout  
+- Validación de datos de facturación  
+- Validación de datos de envío  
+- Selección de métodos de envío y pago  
+- Confirmación del pedido  
+- Validación de totales  
+- Validación API del pedido  
+- Validación SQL del pedido  
 
-Consistencia entre UI, API y SQL
+---
 
-📌 Alcance
-Login desde Checkout
+# 🔧 **3. Precondiciones**
 
-Validación de datos de facturación
+- Usuario registrado  
+- Usuario con capacidad de iniciar sesión  
+- Carrito con al menos 1 producto  
+- Acceso a API REST  
+- Acceso a base de datos MySQL  
+- Cookies limpias  
 
-Validación de datos de envío
+---
 
-Selección de métodos de envío y pago
+# 🧪 **4. Casos de Prueba UI**
 
-Confirmación del pedido
+---
 
-Validación de totales
+## 🟦 **TC‑01 – Acceso al Checkout**
 
-Validación API del pedido
+**Objetivo:** Validar que el usuario puede acceder al checkout desde el carrito.
 
-Validación SQL del pedido
+**Pasos:**
 
-🔧 Precondiciones
-Usuario registrado
+1. Agregar productos al carrito  
+2. Abrir el carrito  
+3. Hacer clic en **Checkout**  
 
-Usuario con capacidad de iniciar sesión
+**Validaciones:**
 
-Carrito con al menos 1 producto
+- Título: *Checkout*  
+- Pasos 1 a 6 visibles  
 
-Acceso a API REST
+---
 
-Acceso a base de datos MySQL
+## 🟦 **TC‑02 – Login desde Checkout**
 
-Cookies limpias
+**Objetivo:** Validar que un usuario puede iniciar sesión desde el paso 1 del checkout.
 
-🧪 Casos de Prueba UI
-🟦 TC-01 – Acceso al Checkout
-Objetivo: Validar que el usuario puede acceder al checkout desde el carrito.
+**Pasos:**
 
-Pasos
-Agregar productos al carrito
+1. Ingresar email  
+2. Ingresar contraseña  
+3. Hacer clic en **Login**  
 
-Abrir el carrito
+**Validaciones:**
 
-Hacer clic en “Checkout”
+- Avanza automáticamente a *Billing Details*  
+- Usuario autenticado  
 
-Validaciones
-Título: Checkout
+---
 
-Pasos 1 a 6 visibles
+## 🟦 **TC‑03 – Billing Details**
 
-🟦 TC-02 – Login desde Checkout
-Objetivo: Validar que un usuario puede iniciar sesión desde el paso 1 del checkout.
+**Objetivo:** Validar que el usuario puede completar los datos de facturación.
 
-Pasos
-Ingresar email
+**Validaciones:**
 
-Ingresar contraseña
+- Campos obligatorios visibles  
+- Validación de formato  
+- Botón **Continue** habilitado  
 
-Hacer clic en “Login”
+---
 
-Validaciones
-Avanza automáticamente a Billing Details
+## 🟦 **TC‑04 – Delivery Details**
 
-Usuario autenticado
+**Objetivo:** Validar que el usuario puede seleccionar o ingresar dirección de envío.
 
-🟦 TC-03 – Billing Details
-Objetivo: Validar que el usuario puede completar los datos de facturación.
+**Validaciones:**
 
-Validaciones
-Campos obligatorios visibles
+- Dirección existente visible  
+- Opción de nueva dirección disponible  
+- **Continue** habilitado  
 
-Validación de formato
+---
 
-Botón Continue habilitado
+## 🟦 **TC‑05 – Delivery Method**
 
-🟦 TC-04 – Delivery Details
-Objetivo: Validar que el usuario puede seleccionar o ingresar dirección de envío.
+**Objetivo:** Validar que el usuario puede seleccionar método de envío.
 
-Validaciones
-Dirección existente visible
+**Validaciones:**
 
-Opción de nueva dirección disponible
+- Métodos disponibles  
+- Costos correctos  
+- **Continue** habilitado  
 
-Continue habilitado
+---
 
-🟦 TC-05 – Delivery Method
-Objetivo: Validar que el usuario puede seleccionar método de envío.
+## 🟦 **TC‑06 – Payment Method**
 
-Validaciones
-Métodos disponibles
+**Objetivo:** Validar que el usuario puede seleccionar método de pago.
 
-Costos correctos
+**Validaciones:**
 
-Continue habilitado
+- Métodos disponibles  
+- Checkbox de términos obligatorio  
+- **Continue** habilitado  
 
-🟦 TC-06 – Payment Method
-Objetivo: Validar que el usuario puede seleccionar método de pago.
+---
 
-Validaciones
-Métodos disponibles
+## 🟦 **TC‑07 – Confirm Order**
 
-Checkbox de términos obligatorio
+**Objetivo:** Validar que el resumen del pedido es correcto.
 
-Continue habilitado
+**Validaciones:**
 
-🟦 TC-07 – Confirm Order
-Objetivo: Validar que el resumen del pedido es correcto.
+- Productos correctos  
+- Cantidades correctas  
+- Subtotal correcto  
+- Impuestos correctos  
+- Total final correcto  
 
-Validaciones
-Productos correctos
+---
 
-Cantidades correctas
+## 🟦 **TC‑08 – Validación de página de éxito**
 
-Subtotal correcto
+**Objetivo:** Validar que el pedido se completa correctamente.
 
-Impuestos correctos
+**Validaciones:**
 
-Total final correcto
+- Mensaje: *Your order has been placed!*  
+- Order ID visible  
+- Botón **Continue** visible  
 
-🟦 TC-08 – Validación de página de éxito
-Objetivo: Validar que el pedido se completa correctamente.
+---
 
-Validaciones
-Mensaje: Your order has been placed!
+# 🔌 **5. Casos de Prueba API**
 
-Order ID visible
+---
 
-Botón Continue visible
+## 🟦 **API‑TC‑01 – Validar creación del pedido vía API**
 
-🧪 Casos de Prueba API
-🟦 API-TC-01 – Validar creación del pedido vía API
-Validaciones
+**Validaciones:**
 
-Código 200/201
+- Código 200/201  
+- `order_id` generado  
+- Totales correctos  
+- Productos correctos  
 
-order_id generado
+---
 
-Totales correctos
+## 🟦 **API‑TC‑02 – Validar totales del pedido**
 
-Productos correctos
+**Validaciones:**
 
-🟦 API-TC-02 – Validar totales del pedido
-Validaciones
+- Subtotal  
+- Tax  
+- Total  
+- Coincidencia con UI  
 
-Subtotal
+---
 
-Tax
+## 🟦 **API‑TC‑03 – Validar productos del pedido**
 
-Total
+**Validaciones:**
 
-Coincidencia con UI
+- product_id  
+- quantity  
+- price  
+- total  
 
-🟦 API-TC-03 – Validar productos del pedido
-Validaciones
+---
 
-product_id
+# 🗄️ **6. Casos de Prueba SQL**
 
-quantity
+---
 
-price
+## 🟦 **SQL‑TC‑01 – Validar registro del pedido**
 
-total
-
-🧪 Casos de Prueba SQL
-🟦 SQL-TC-01 – Validar registro del pedido
-sql
+```sql
 SELECT * 
 FROM oc_order 
 WHERE order_id = {ORDER_ID};
-Validar:
+```
 
-total
+**Validar:**
 
-payment_method
+- total  
+- payment_method  
+- currency  
+- status  
 
-currency
+---
 
-status
+## 🟦 **SQL‑TC‑02 – Validar productos del pedido**
 
-🟦 SQL-TC-02 – Validar productos del pedido
-sql
+```sql
 SELECT * 
 FROM oc_order_product 
 WHERE order_id = {ORDER_ID};
-Validar:
+```
 
-product_id
+**Validar:**
 
-name
+- product_id  
+- name  
+- price  
+- quantity  
+- total  
 
-price
+---
 
-quantity
+## 🟦 **SQL‑TC‑03 – Validar totales financieros**
 
-total
-
-🟦 SQL-TC-03 – Validar totales financieros
-sql
+```sql
 SELECT * 
 FROM oc_order_total 
 WHERE order_id = {ORDER_ID};
-Validar:
+```
 
-Subtotal
+**Validar:**
 
-Tax
+- Subtotal  
+- Tax  
+- Shipping  
+- Total  
 
-Shipping
+---
 
-Total
+## 🟦 **SQL‑TC‑04 – Validar integridad referencial**
 
-🟦 SQL-TC-04 – Validar integridad referencial
-sql
+```sql
 SELECT o.order_id, op.product_id
 FROM oc_order o
 LEFT JOIN oc_order_product op ON o.order_id = op.order_id
 WHERE o.order_id = {ORDER_ID};
-Validar:
+```
 
-No existan productos huérfanos
+**Validar:**
 
-No existan totales sin pedido
+- No existan productos huérfanos  
+- No existan totales sin pedido  
+- No existan pedidos sin productos  
 
-No existan pedidos sin productos
+---
 
-🧾 Notas de Negocio
-El checkout es el flujo más crítico del e‑commerce
+# 🧾 **7. Notas de Negocio**
 
-Los totales deben coincidir entre UI, API y SQL
+- El checkout es el flujo más crítico del e‑commerce  
+- Los totales deben coincidir entre UI, API y SQL  
+- El pedido debe quedar registrado correctamente  
+- El usuario debe recibir confirmación clara  
+- La integridad financiera es obligatoria  
 
-El pedido debe quedar registrado correctamente
+---
 
-El usuario debe recibir confirmación clara
-
-La integridad financiera es obligatoria
-
-📸 Evidencias
+# 📸 **8. Evidencias**
