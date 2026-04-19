@@ -1,219 +1,253 @@
-🧪 Casos de Prueba – Flujo de Búsqueda de Productos
-Proyecto: OpenCart – Cypress E2E
-Autor: Eduardo José Parra Perdomo
-Fecha: 17/04/2026
+# 📄 **TC-Flujo-Busqueda.md**  
+### **Flujo de Búsqueda de Productos – OpenCart E2E (UI + API + SQL opcional)**  
+**Proyecto:** OpenCart – Cypress E2E  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-📘 Índice
-Objetivo del Flujo
+---
 
-Alcance
+# 📘 **Índice**
 
-Precondiciones
+1. Objetivo del Flujo  
+2. Alcance  
+3. Precondiciones  
+4. Casos de Prueba UI  
+   - TC‑01 – Acceso al buscador  
+   - TC‑02 – Búsqueda por nombre exacto  
+   - TC‑03 – Búsqueda por palabra clave  
+   - TC‑04 – Búsqueda parcial  
+   - TC‑05 – Búsqueda sin resultados  
+   - TC‑06 – Búsqueda con mayúsculas/minúsculas  
+   - TC‑07 – Búsqueda con caracteres especiales  
+   - TC‑08 – Navegación desde resultados  
+   - TC‑09 – Agregar producto al carrito desde resultados  
+5. Casos de Prueba API (si aplica)  
+6. Casos de Prueba SQL (si aplica)  
+7. Notas de Negocio  
+8. Evidencias  
 
-Casos de Prueba UI
+---
 
-TC-01 – Acceso al buscador
+# 🎯 **1. Objetivo del Flujo**
 
-TC-02 – Búsqueda por nombre exacto
-
-TC-03 – Búsqueda por palabra clave
-
-TC-04 – Búsqueda parcial
-
-TC-05 – Búsqueda sin resultados
-
-TC-06 – Búsqueda con mayúsculas/minúsculas
-
-TC-07 – Búsqueda con caracteres especiales
-
-TC-08 – Navegación desde resultados
-
-TC-09 – Agregar producto al carrito desde resultados
-
-Casos de Prueba API (si aplica)
-
-Casos de Prueba SQL (si aplica)
-
-Notas de Negocio
-
-Evidencias
-
-🎯 Objetivo del Flujo
 Validar que el usuario puede buscar productos correctamente utilizando el buscador principal del sitio, asegurando:
 
-Relevancia de resultados
+- Relevancia de resultados  
+- Comportamiento ante búsquedas válidas e inválidas  
+- Navegación desde resultados  
+- Integración con el carrito  
 
-Comportamiento ante búsquedas válidas e inválidas
+---
 
-Navegación desde resultados
+# 📌 **2. Alcance**
 
-Integración con el carrito
+- Búsqueda desde el header  
+- Validación de resultados  
+- Validación de mensajes  
+- Validación de navegación  
+- Validación de interacción con productos  
 
-📌 Alcance
-Búsqueda desde el header
+---
 
-Validación de resultados
+# 🔧 **3. Precondiciones**
 
-Validación de mensajes
+- Acceso a OpenCart Demo  
+- Productos disponibles en catálogo  
+- Navegador funcional  
+- Cookies limpias  
 
-Validación de navegación
+---
 
-Validación de interacción con productos
+# 🧪 **4. Casos de Prueba UI**
 
-🔧 Precondiciones
-Acceso a OpenCart Demo
+---
 
-Productos disponibles en catálogo
+## 🟦 **TC‑01 – Acceso al buscador**
 
-Navegador funcional
+**Objetivo:** Validar que el buscador está visible y funcional.
 
-Cookies limpias
+**Validaciones:**
 
-🧪 Casos de Prueba UI
-🟦 TC-01 – Acceso al buscador
-Objetivo: Validar que el buscador está visible y funcional.
+- Campo de búsqueda visible  
+- Placeholder: *Search*  
+- Botón de búsqueda visible  
 
-Validaciones
-Campo de búsqueda visible
+---
 
-Placeholder: Search
+## 🟦 **TC‑02 – Búsqueda por nombre exacto**
 
-Botón de búsqueda visible
+**Objetivo:** Validar que un producto aparece cuando se busca por su nombre exacto.
 
-🟦 TC-02 – Búsqueda por nombre exacto
-Objetivo: Validar que un producto aparece cuando se busca por su nombre exacto.
+**Pasos:**
 
-Pasos
-Escribir: "iPhone"
+1. Escribir: `"iPhone"`  
+2. Hacer clic en buscar  
 
-Hacer clic en buscar
+**Validaciones:**
 
-Validaciones
-Producto “iPhone” aparece
+- Producto *iPhone* aparece  
+- Imagen visible  
+- Precio visible  
 
-Imagen visible
+---
 
-Precio visible
+## 🟦 **TC‑03 – Búsqueda por palabra clave**
 
-🟦 TC-03 – Búsqueda por palabra clave
-Objetivo: Validar que la búsqueda devuelve productos relacionados.
+**Objetivo:** Validar que la búsqueda devuelve productos relacionados.
 
-Ejemplos
-“camera”
+**Ejemplos:**
 
-“laptop”
+- `"camera"`  
+- `"laptop"`  
 
-Validaciones
-Lista de productos relacionados
+**Validaciones:**
 
-Relevancia aceptable
+- Lista de productos relacionados  
+- Relevancia aceptable  
 
-🟦 TC-04 – Búsqueda parcial
-Objetivo: Validar que el sistema soporta coincidencias parciales.
+---
 
-Ejemplo
-“cam” → debería mostrar “Canon EOS 5D”
+## 🟦 **TC‑04 – Búsqueda parcial**
 
-Validaciones
-Resultados correctos
+**Objetivo:** Validar que el sistema soporta coincidencias parciales.
 
-No muestra productos irrelevantes
+**Ejemplo:**
 
-🟦 TC-05 – Búsqueda sin resultados
-Objetivo: Validar comportamiento cuando no hay coincidencias.
+- `"cam"` → debería mostrar *Canon EOS 5D*  
 
-Ejemplo
-“xyz123”
+**Validaciones:**
 
-Validaciones
-Mensaje: There is no product that matches the search criteria.
+- Resultados correctos  
+- No muestra productos irrelevantes  
 
-No se muestran productos
+---
 
-🟦 TC-06 – Búsqueda con mayúsculas/minúsculas
-Objetivo: Validar que la búsqueda no es case-sensitive.
+## 🟦 **TC‑05 – Búsqueda sin resultados**
 
-Ejemplos
-“IPHONE”
+**Objetivo:** Validar comportamiento cuando no hay coincidencias.
 
-“iphone”
+**Ejemplo:**
 
-“iPhOnE”
+- `"xyz123"`  
 
-Validaciones
-Mismos resultados en todos los casos
+**Validaciones:**
 
-🟦 TC-07 – Búsqueda con caracteres especiales
-Objetivo: Validar que el sistema maneja caracteres inválidos.
+- Mensaje: *There is no product that matches the search criteria.*  
+- No se muestran productos  
 
-Ejemplos
-“@@@”
+---
 
-“###”
+## 🟦 **TC‑06 – Búsqueda con mayúsculas/minúsculas**
 
-Validaciones
-No rompe la UI
+**Objetivo:** Validar que la búsqueda no es case‑sensitive.
 
-Mensaje de sin resultados
+**Ejemplos:**
 
-🟦 TC-08 – Navegación desde resultados
-Objetivo: Validar que el usuario puede abrir un producto desde los resultados.
+- `"IPHONE"`  
+- `"iphone"`  
+- `"iPhOnE"`  
 
-Validaciones
-Página del producto carga correctamente
+**Validaciones:**
 
-Nombre correcto
+- Mismos resultados en todos los casos  
 
-Precio correcto
+---
 
-🟦 TC-09 – Agregar producto al carrito desde resultados
-Objetivo: Validar integración búsqueda → carrito.
+## 🟦 **TC‑07 – Búsqueda con caracteres especiales**
 
-Pasos
-Buscar producto
+**Objetivo:** Validar que el sistema maneja caracteres inválidos.
 
-Hacer clic en Add to Cart
+**Ejemplos:**
 
-Validaciones
-Mensaje de éxito
+- `"@@@"`  
+- `"###"`  
 
-Carrito actualizado
+**Validaciones:**
 
-🧪 Casos de Prueba API
-(Solo si tu demo expone endpoint de búsqueda. Si no, queda como referencia profesional.)
+- No rompe la UI  
+- Mensaje de sin resultados  
 
-🟦 API-TC-01 – Buscar producto vía API
-Validaciones
-Código 200
+---
 
-Lista de productos
+## 🟦 **TC‑08 – Navegación desde resultados**
 
-Coincidencia con UI
+**Objetivo:** Validar que el usuario puede abrir un producto desde los resultados.
 
-🟦 API-TC-02 – Validar relevancia de resultados
-Validaciones
-Palabra clave presente en nombre o descripción
+**Validaciones:**
 
-Orden correcto
+- Página del producto carga correctamente  
+- Nombre correcto  
+- Precio correcto  
 
-🧪 Casos de Prueba SQL
-(Depende de si tu versión permite búsqueda por BD.)
+---
 
-🟦 SQL-TC-01 – Validar búsqueda por nombre
-sql
+## 🟦 **TC‑09 – Agregar producto al carrito desde resultados**
+
+**Objetivo:** Validar integración búsqueda → carrito.
+
+**Pasos:**
+
+1. Buscar producto  
+2. Hacer clic en **Add to Cart**  
+
+**Validaciones:**
+
+- Mensaje de éxito  
+- Carrito actualizado  
+
+---
+
+# 🔌 **5. Casos de Prueba API (si aplica)**  
+*(Solo si tu demo expone endpoint de búsqueda.)*
+
+---
+
+## 🟦 **API‑TC‑01 – Buscar producto vía API**
+
+**Validaciones:**
+
+- Código 200  
+- Lista de productos  
+- Coincidencia con UI  
+
+---
+
+## 🟦 **API‑TC‑02 – Validar relevancia de resultados**
+
+**Validaciones:**
+
+- Palabra clave presente en nombre o descripción  
+- Orden correcto  
+
+---
+
+# 🗄️ **6. Casos de Prueba SQL (si aplica)**  
+*(Solo si quieres validar coincidencias en BD.)*
+
+---
+
+## 🟦 **SQL‑TC‑01 – Validar búsqueda por nombre**
+
+```sql
 SELECT * 
 FROM oc_product_description 
 WHERE name LIKE '%{SEARCH}%';
-Validaciones
-Coincidencias correctas
+```
 
-No devuelve productos irrelevantes
+**Validaciones:**
 
-🧾 Notas de Negocio
-La búsqueda es un flujo crítico para conversión
+- Coincidencias correctas  
+- No devuelve productos irrelevantes  
 
-Debe ser rápida, relevante y tolerante a errores
+---
 
-Debe integrarse con carrito y detalle de producto
+# 🧾 **7. Notas de Negocio**
 
-📸 Evidencias
+- La búsqueda es un flujo crítico para conversión  
+- Debe ser rápida, relevante y tolerante a errores  
+- Debe integrarse con carrito y detalle de producto  
+
+---
+
+# 📸 **8. Evidencias**
+
