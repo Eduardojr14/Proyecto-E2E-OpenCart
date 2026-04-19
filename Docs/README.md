@@ -1,19 +1,22 @@
-# 📚 **Documentación del Proyecto – Carpeta `/docs`**
+# 📚 **Documentación del Proyecto – Carpeta `/docs`**  
+**Proyecto:** OpenCart – Cypress E2E + API + SQL  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-Este directorio contiene **toda la documentación funcional, técnica y de validación** del proyecto **OpenCart – Cypress E2E + API + SQL**.
+Este directorio contiene **toda la documentación funcional, técnica y de validación** del proyecto OpenCart.
 
 Cada flujo está documentado en formato profesional, incluyendo:
 
-- **Objetivo**
-- **Alcance**
-- **Precondiciones**
-- **Casos de prueba UI**
-- **Casos de prueba API**
-- **Casos de prueba SQL**
-- **Notas de negocio**
-- **Evidencias**
-- **Riesgos y consideraciones**
-- **Criterios de aceptación**
+- Objetivo  
+- Alcance  
+- Precondiciones  
+- Casos de prueba UI  
+- Casos de prueba API (solo módulos reales)  
+- Casos de prueba SQL (solo módulos reales)  
+- Notas de negocio  
+- Evidencias  
+- Riesgos y consideraciones  
+- Criterios de aceptación  
 
 Además, aquí se encuentra el **Plan de Pruebas completo**, que define la estrategia QA del proyecto.
 
@@ -33,26 +36,26 @@ Documentación de los flujos principales del e‑commerce.
   👉 `/docs/TC-Flujo-Registro.md`
 
 - **Flujo: Carrito de Compras (Básico)**  
-  👉 `/docs/TC-Flujo-Desktops-Cameras.md`
+  👉 `/docs/TC-Flujo-Carrito.md`
 
-- **Flujo: Carrito de Compras (Avanzado – UI + API + SQL)**  
-  👉 `/docs/TC-Flujo-Desktops-Cameras-Advanced.md`
+- **Flujo: Carrito Avanzado (UI + API + SQL)**  
+  👉 `/docs/TC-Flujo-Carrito-Avanzado.md`
 
 - **Flujo: Checkout Completo**  
   👉 `/docs/TC-Flujo-Checkout.md`
 
-- **Flujo: Wishlist (Lista de Deseos)**  
+- **Flujo: Wishlist (UI)**  
   👉 `/docs/TC-Flujo-Wishlist.md`
 
-- **Flujo: Búsqueda de Productos**  
+- **Flujo: Búsqueda de Productos (UI)**  
   👉 `/docs/TC-Flujo-Busqueda.md`
 
 ---
 
-## 🔌 **2. Flujos de API Testing**  
+## 🔌 **2. Flujos de API Testing (solo módulos reales)**  
 Validación completa de endpoints REST, integridad de datos y consistencia con UI.
 
-- **Flujo: API Testing Completo (Productos, Carrito, Totales, Pedidos)**  
+- **Flujo: API Testing Completo (Productos, Carrito, Totales, Stock, Pedidos)**  
   👉 `/docs/TC-Flujo-API-Testing.md`
 
 ---
@@ -72,27 +75,29 @@ Documento maestro que define:
 - Alcance y exclusiones  
 - Tipos de pruebas  
 - Criterios de entrada y salida  
-- Roles y responsabilidades  
 - Ambientes  
 - Riesgos  
 - Métricas  
 - Herramientas  
 - Artefactos QA  
 
-👉 **`/docs/Plan-de-Pruebas.md`**
+👉 `/docs/Plan-de-Pruebas.md`
 
 ---
 
-## 🧩 **5. Documentación Técnica (Opcional / Expandible)**  
+## 🧩 **5. Diagramas del Proyecto**
 
+- **Diagrama de Arquitectura POM**  
+  👉 `/docs/Diagramas/Diagrama-POM.md`
 
-- Arquitectura POM del Proyecto  
-- Estructura de Carpetas Cypress  
-- Guía de Instalación y Ejecución  
-- Buenas Prácticas QA Automation  
-- Roadmap Técnico  
-- Diagramas de flujo  
-- Diagramas de arquitectura  
+- **Diagrama del Flujo Completo de Checkout**  
+  👉 `/docs/Diagramas/Diagrama-Checkout.md`
+
+- **Diagrama del Flujo de Pruebas (UI + API + SQL)**  
+  👉 `/docs/Diagramas/Diagrama-Flujo-Pruebas.md`
+
+- **Diagrama del Repositorio (estructura completa)**  
+  👉 `/docs/Diagramas/Diagrama-Repo.md`
 
 ---
 
@@ -105,15 +110,23 @@ Documento maestro que define:
 │
 ├── TC-Flujo-Login.md
 ├── TC-Flujo-Registro.md
-├── TC-Flujo-Desktops-Cameras.md
-├── TC-Flujo-Desktops-Cameras-Advanced.md
+├── TC-Flujo-Carrito.md
+├── TC-Flujo-Carrito-Avanzado.md
 ├── TC-Flujo-Checkout.md
 ├── TC-Flujo-API-Testing.md
 ├── TC-Flujo-SQL-Pedido.md
 ├── TC-Flujo-Busqueda.md
 ├── TC-Flujo-Wishlist.md
 │
+├── Diagramas/
+│   ├── Diagrama-POM.md
+│   ├── Diagrama-Checkout.md
+│   ├── Diagrama-Flujo-Pruebas.md
+│   └── Diagrama-Repo.md
+│
 └── README.md   ← (este índice)
 ```
+
+
 
 
