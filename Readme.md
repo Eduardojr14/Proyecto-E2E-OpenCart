@@ -1,4 +1,3 @@
-
 # ⭐ Proyecto de Automatización E2E + API + SQL con Cypress  
 ### Plataforma: OpenCart (Demo)
 
@@ -14,11 +13,10 @@
 Construir un **framework profesional de automatización** que valide funcionalidades críticas de un e‑commerce real (OpenCart), integrando:
 
 - Pruebas **End‑to‑End (UI)**  
-- Pruebas **API REST**  
+- Pruebas **API REST** (solo módulos reales: productos, carrito, totales, stock, pedidos)  
 - Validaciones **SQL** para integridad financiera  
 - Integración **UI + API + SQL**  
 - Arquitectura escalable basada en **Page Object Model (POM)**  
-- Código limpio, mantenible y orientado a equipos QA modernos  
 
 Este proyecto forma parte de mi portafolio como **QA Functional Analyst / QA Automation**.
 
@@ -28,9 +26,9 @@ Este proyecto forma parte de mi portafolio como **QA Functional Analyst / QA Aut
 
 | Tecnología | Uso |
 |-----------|-----|
-| **Cypress** | Automatización E2E y API |
+| **Cypress** | Automatización UI + API |
 | **JavaScript / Node.js** | Lenguaje principal |
-| **Mocha + Chai** | Framework de aserciones |
+| **Mocha + Chai** | Aserciones |
 | **Page Object Model (POM)** | Arquitectura escalable |
 | **Custom Commands** | Reutilización de lógica |
 | **Fixtures** | Datos de prueba |
@@ -83,22 +81,24 @@ PROYECTO-E2E-OPENCART/
 
 - Login  
 - Registro  
+- Logout  
+- Búsqueda  
+- Wishlist  
 - Carrito (básico + avanzado)  
 - Checkout  
-- Wishlist  
-- Búsqueda  
 - Validaciones visuales y funcionales  
 
 ---
 
-## 🔌 6. Funcionalidades Automatizadas (API)
+## 🔌 6. Funcionalidades Automatizadas (API)  
 
-- Crear usuario por API  
-- Validar login por API  
-- Validar productos  
-- Validar carrito  
-- Validar totales  
+- Obtener productos  
 - Validar stock  
+- Crear carrito  
+- Agregar/eliminar productos del carrito  
+- Validar totales  
+- Crear pedido  
+- Validar pedido vía API  
 
 ---
 
@@ -109,8 +109,8 @@ PROYECTO-E2E-OPENCART/
 - Totales del pedido (`oc_order_total`)  
 - Stock descontado (`oc_product`)  
 - Auditoría del pedido (`oc_order_history`)  
-- Integridad referencial  
 - Validación de dirección (`oc_address`)  
+- Validación de usuario registrado (`oc_customer`)  
 
 ---
 
@@ -166,8 +166,9 @@ Incluye:
 - [x] Flujo E2E: Registro  
 - [x] Flujo E2E: Checkout  
 - [x] Flujo E2E: Búsqueda  
-- [x] API Testing completo  
-- [x] SQL Testing completo  
+- [x] Wishlist (solo UI)  
+- [x] API Testing (módulos reales)  
+- [x] SQL Testing (módulos reales)  
 - [ ] Reportes Allure  
 - [ ] Pipeline CI/CD (GitHub Actions)  
 - [ ] Integración con Docker  
@@ -202,10 +203,13 @@ class ProductPage {
 QA Functional Analyst | QA Automation | Banking & Payments  
 Cypress | API Testing | SQL | POM  
 
-🔗 LinkedIn: `https://www.linkedin.com/in/eduardo-j-parra-p/` 
+🔗 LinkedIn: [https://www.linkedin.com/in/eduardo-j-parra-p/](https://www.linkedin.com/in/eduardo-j-parra-p/)
 
 ---
 
 ## 📘 14. Licencia  
 Proyecto de uso educativo y demostrativo.
+
+---
+
 
