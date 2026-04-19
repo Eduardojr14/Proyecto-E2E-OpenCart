@@ -1,8 +1,7 @@
-
 # 🧪 **PLAN DE PRUEBAS – Proyecto OpenCart (Cypress E2E + API + SQL)**  
 **Autor:** Eduardo José Parra Perdomo  
 **Fecha:** 17/04/2026  
-**Versión:** 1.0
+**Versión:** 1.1 (Corregida)
 
 ---
 
@@ -11,9 +10,9 @@
 Definir la estrategia, alcance, tipos de pruebas, criterios y recursos necesarios para validar la plataforma OpenCart mediante:
 
 - Pruebas **End-to-End (UI)**  
-- Pruebas **API REST**  
-- Validaciones **SQL**  
-- Integración **UI + API + SQL**  
+- Pruebas **API REST** (solo para módulos que realmente exponen endpoints)  
+- Validaciones **SQL** (solo para módulos que registran datos en BD)  
+- Integración **UI + API + SQL** en flujos críticos  
 - Automatización con **Cypress** bajo arquitectura **POM**
 
 El objetivo es garantizar la calidad funcional, técnica y financiera del e‑commerce.
@@ -25,15 +24,16 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 ### ✔ Incluye:
 - Validación de flujos críticos del e‑commerce  
 - Validación de lógica contable (totales, impuestos, stock)  
-- Validación de endpoints API  
-- Validación de integridad en base de datos  
+- Validación de endpoints API reales (productos, carrito, totales, stock, pedidos)  
+- Validación de integridad en base de datos (registro, carrito, pedidos)  
 - Automatización completa de los flujos documentados  
 - Reportes de ejecución  
 
 ### ❌ No incluye:
+- API para Login, Registro, Wishlist o Búsqueda (no existen en la demo)  
+- SQL para Wishlist o Búsqueda (no existen registros)  
 - Pruebas de performance  
-- Pruebas de seguridad  
-- Pruebas de accesibilidad  
+- Pruebas de seguridad avanzadas  
 - Pruebas móviles nativas  
 
 ---
@@ -51,20 +51,21 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 - Validación de totales e impuestos  
 - Navegación por categorías  
 
-### 🔵 **API**
+### 🔵 **API (solo módulos reales)**
 - Productos  
 - Carrito  
 - Totales  
 - Stock  
-- Creación de pedidos  
+- Pedidos  
 - Integración UI + API  
 
-### 🔵 **SQL**
-- Validación de pedido  
+### 🔵 **SQL (solo módulos reales)**
+- Registro de usuario  
+- Carrito (si aplica)  
+- Pedido  
 - Productos del pedido  
 - Totales financieros  
 - Stock descontado  
-- Auditoría del pedido  
 
 ---
 
@@ -75,7 +76,7 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 - **Validación de datos (SQL)**  
 - **Regresión automatizada**  
 - **Smoke Testing**  
-- **Validación de negocio (totales, impuestos, stock)**  
+- **Validación financiera (totales, impuestos, stock)**  
 
 ---
 
@@ -114,7 +115,7 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 
 ---
 
-## 📊 **7. Estimación de Casos de Prueba**
+## 📊 **7. Estimación de Casos de Pruebas**
 
 | Flujo | Casos |
 |-------|-------|
@@ -143,7 +144,8 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 - Todos los tests ejecutados  
 - Reportes generados  
 - Defectos documentados  
-- Validación de pedido en BD  
+- Validación SQL correcta  
+- Totales financieros correctos  
 
 ---
 
@@ -184,4 +186,5 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 - Documentación `/docs`  
 - Diagramas visuales  
 - Plan de Pruebas (este documento)  
+
 
