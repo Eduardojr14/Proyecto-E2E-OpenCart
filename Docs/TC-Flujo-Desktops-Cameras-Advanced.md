@@ -1,275 +1,306 @@
 
-🧪 Casos de Prueba Avanzados – Flujo Carrito de Compra
-Proyecto: OpenCart – Cypress E2E + API + SQL
-Autor: Eduardo José Parra Perdomo
-Fecha: 17/04/2026
+# 📄 **TC-Flujo-Carrito-Avanzado.md**  
+### **Casos de Prueba Avanzados – Carrito de Compra (UI + API + SQL)**  
+**Proyecto:** OpenCart – Cypress E2E + API + SQL  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-📘 Índice
-Objetivo del Flujo
+---
 
-Alcance
+# 📘 **Índice**
 
-Precondiciones
+1. Objetivo del Flujo  
+2. Alcance  
+3. Precondiciones  
+4. Casos de Prueba UI  
+   - TC‑10 – Actualizar cantidad  
+   - TC‑11 – Eliminar producto  
+   - TC‑12 – Persistencia del carrito  
+   - TC‑13 – Límites de cantidad  
+   - TC‑14 – Producto sin stock  
+   - TC‑15 – Opciones obligatorias  
+5. Casos de Prueba API  
+6. Casos de Prueba SQL  
+7. Notas de Negocio  
+8. Evidencias  
 
-Casos de Prueba UI
+---
 
-TC-01 a TC-09 (básicos)
+# 🎯 **1. Objetivo del Flujo**
 
-TC-10 a TC-15 (avanzados)
-
-Casos de Prueba API
-
-Casos de Prueba SQL
-
-Notas de Negocio
-
-Evidencias
-
-🎯 Objetivo del Flujo
 Validar el proceso completo de agregar productos al carrito, verificar cálculos financieros, validar integridad de datos vía API y asegurar consistencia en base de datos para transacciones de e‑commerce.
 
-📌 Alcance
-Navegación por categorías
+---
 
-Selección de productos
+# 📌 **2. Alcance**
 
-Agregar al carrito
+- Navegación por categorías  
+- Selección de productos  
+- Agregar al carrito  
+- Validación de totales  
+- Persistencia del carrito  
+- Validación API de productos, carrito y totales  
+- Validación SQL de integridad financiera  
 
-Validación de totales
+---
 
-Persistencia del carrito
+# 🔧 **3. Precondiciones**
 
-Validación API de productos, carrito y totales
+- Acceso a OpenCart Demo  
+- Navegador funcional  
+- Cookies limpias  
+- Usuario no autenticado  
+- Acceso a API REST  
+- Acceso a base de datos MySQL  
 
-Validación SQL de integridad financiera
+---
 
-🔧 Precondiciones
-Acceso a OpenCart Demo
+# 🧪 **4. Casos de Prueba UI (Avanzados)**
 
-Navegador funcional
+---
 
-Cookies limpias
+## 🟦 **TC‑10 – Actualizar cantidad de productos en el carrito**
 
-Usuario no autenticado
+**Objetivo:** Validar que el sistema recalcula correctamente los totales al modificar cantidades.
 
-Acceso a API REST
+**Pasos:**
 
-Acceso a base de datos MySQL
+1. Agregar **HP LP3065** al carrito  
+2. Cambiar cantidad de **1 → 2**  
 
-🧪 Casos de Prueba UI
-Los primeros 9 casos corresponden al archivo original del flujo.
-Aquí agregamos los casos avanzados.
+**Validaciones:**
 
-🟦 TC-10 – Actualizar cantidad de productos en el carrito
-Objetivo: Validar que el sistema recalcula correctamente los totales al modificar cantidades.
+- Subtotal = precio × cantidad  
+- VAT recalculado  
+- Total recalculado  
+- Mensaje de actualización correcto  
 
-Pasos
-Agregar HP LP3065 al carrito
+---
 
-Cambiar cantidad de 1 → 2
+## 🟦 **TC‑11 – Eliminar producto del carrito**
 
-Validaciones
-Subtotal = precio * cantidad
+**Objetivo:** Validar que el carrito se actualiza correctamente al eliminar un producto.
 
-VAT recalculado
+**Validaciones:**
 
-Total recalculado
+- Producto eliminado  
+- Totales recalculados  
+- Carrito vacío si no quedan productos  
 
-Mensaje de actualización correcto
+---
 
-🟦 TC-11 – Eliminar producto del carrito
-Objetivo: Validar que el carrito se actualiza correctamente al eliminar un producto.
+## 🟦 **TC‑12 – Persistencia del carrito al refrescar**
 
-Validaciones
-Producto eliminado
+**Objetivo:** Validar que el carrito mantiene los productos tras refrescar la página.
 
-Totales recalculados
+**Pasos:**
 
-Carrito vacío si no quedan productos
+1. Agregar producto  
+2. Refrescar navegador  
 
-🟦 TC-12 – Persistencia del carrito al refrescar
-Objetivo: Validar que el carrito mantiene los productos tras refrescar la página.
+**Validaciones:**
 
-Pasos
-Agregar producto
+- Productos siguen visibles  
+- Totales correctos  
 
-Refrescar navegador
+---
 
-Validaciones
-Productos siguen visibles
+## 🟦 **TC‑13 – Validación de límites de cantidad**
 
-Totales correctos
+**Objetivo:** Validar que el sistema maneja correctamente cantidades inválidas.
 
-🟦 TC-13 – Validación de límites de cantidad
-Objetivo: Validar que el sistema maneja correctamente cantidades inválidas.
+**Casos:**
 
-Casos
-Cantidad = 0
+- Cantidad = 0  
+- Cantidad negativa  
+- Cantidad con texto  
+- Cantidad extremadamente alta  
 
-Cantidad negativa
+**Validaciones:**
 
-Cantidad con texto
+- Mensajes de error  
+- No rompe el carrito  
+- No permite cantidades inválidas  
 
-Cantidad extremadamente alta
+---
 
-Validaciones
-Mensajes de error
+## 🟦 **TC‑14 – Producto sin stock**
 
-No rompe el carrito
+**Objetivo:** Validar que el sistema no permite agregar productos sin stock.
 
-No permite cantidades inválidas
+**Validaciones:**
 
-🟦 TC-14 – Producto sin stock
-Objetivo: Validar que el sistema no permite agregar productos sin stock.
+- Mensaje de error  
+- Botón **Add to Cart** deshabilitado  
 
-Validaciones
-Mensaje de error
+---
 
-Botón Add to Cart deshabilitado
+## 🟦 **TC‑15 – Validación de opciones obligatorias**
 
-🟦 TC-15 – Validación de opciones obligatorias
-Objetivo: Validar que el sistema exige seleccionar opciones antes de agregar al carrito.
+**Objetivo:** Validar que el sistema exige seleccionar opciones antes de agregar al carrito.
 
-Validaciones
-Mensaje de error
+**Validaciones:**
 
-No agrega producto sin seleccionar opción
+- Mensaje de error  
+- No agrega producto sin seleccionar opción  
 
-🧪 Casos de Prueba API
-🟦 API-TC-01 – Obtener productos por API y validar contra UI
-Objetivo: Validar que los productos mostrados en UI coinciden con los devueltos por la API.
+---
 
-Validaciones
-Nombre
+# 🔌 **5. Casos de Prueba API**
 
-Precio
+---
 
-Tax Class
+## 🟦 **API‑TC‑01 – Obtener productos por API y validar contra UI**
 
-Stock
+**Validaciones:**
 
-Reward Points
+- Nombre  
+- Precio  
+- Tax Class  
+- Stock  
+- Reward Points  
 
-🟦 API-TC-02 – Crear carrito por API y validar en UI
-Flujo híbrido:
+---
 
-Crear carrito vía API
+## 🟦 **API‑TC‑02 – Crear carrito por API y validar en UI**
 
-Agregar producto vía API
+**Flujo híbrido:**
 
-Abrir UI
+1. Crear carrito vía API  
+2. Agregar producto vía API  
+3. Abrir UI  
+4. Validar que el carrito contiene el producto  
 
-Validar que el carrito contiene el producto
+---
 
-🟦 API-TC-03 – Validar cálculo de totales por API
-Validaciones
+## 🟦 **API‑TC‑03 – Validar cálculo de totales por API**
 
-Subtotal
+**Validaciones:**
 
-Tax
+- Subtotal  
+- Tax  
+- Total  
+- Coincidencia con UI  
 
-Total
+---
 
-Coincidencia con UI
+## 🟦 **API‑TC‑04 – Validar stock por API antes de agregar al carrito**
 
-🟦 API-TC-04 – Validar stock por API antes de agregar al carrito
-Validaciones
+**Validaciones:**
 
-Stock API = stock UI
+- Stock API = stock UI  
+- No permite agregar más cantidad que el stock  
 
-No permite agregar más cantidad que el stock
+---
 
-🟦 API-TC-05 – Crear pedido por API y validar en UI
-Validaciones
+## 🟦 **API‑TC‑05 – Crear pedido por API y validar en UI**
 
-Pedido aparece en Order History
+**Validaciones:**
 
-Totales coinciden
+- Pedido aparece en *Order History*  
+- Totales coinciden  
+- Productos coinciden  
 
-Productos coinciden
+---
 
-🧪 Casos de Prueba SQL
-🟦 SQL-TC-01 – Validar registro del carrito
-sql
+# 🗄️ **6. Casos de Prueba SQL**
+
+---
+
+## 🟦 **SQL‑TC‑01 – Validar registro del carrito**
+
+```sql
 SELECT * 
 FROM oc_cart 
 WHERE customer_id = {ID};
-Validar:
+```
 
-product_id
+**Validar:**
 
-quantity
+- product_id  
+- quantity  
+- price  
+- tax_class_id  
 
-price
+---
 
-tax_class_id
+## 🟦 **SQL‑TC‑02 – Validar creación del pedido**
 
-🟦 SQL-TC-02 – Validar creación del pedido
-sql
+```sql
 SELECT * 
 FROM oc_order 
 WHERE order_id = {ORDER_ID};
-Validar:
+```
 
-total
+**Validar:**
 
-payment_method
+- total  
+- payment_method  
+- currency  
+- status  
 
-currency
+---
 
-status
+## 🟦 **SQL‑TC‑03 – Validar productos del pedido**
 
-🟦 SQL-TC-03 – Validar productos del pedido
-sql
+```sql
 SELECT * 
 FROM oc_order_product 
 WHERE order_id = {ORDER_ID};
-Validar:
+```
 
-product_id
+**Validar:**
 
-name
+- product_id  
+- name  
+- price  
+- quantity  
+- total  
 
-price
+---
 
-quantity
+## 🟦 **SQL‑TC‑04 – Validar totales financieros**
 
-total
-
-🟦 SQL-TC-04 – Validar totales financieros
-sql
+```sql
 SELECT * 
 FROM oc_order_total 
 WHERE order_id = {ORDER_ID};
-Validar:
+```
 
-Subtotal
+**Validar:**
 
-Tax
+- Subtotal  
+- Tax  
+- Shipping  
+- Total  
 
-Shipping
+---
 
-Total
+## 🟦 **SQL‑TC‑05 – Validar integridad referencial**
 
-🟦 SQL-TC-05 – Validar integridad referencial
-sql
+```sql
 SELECT o.order_id, op.product_id
 FROM oc_order o
 LEFT JOIN oc_order_product op ON o.order_id = op.order_id
 WHERE o.order_id = {ORDER_ID};
-Validar:
+```
 
-No existan productos huérfanos
+**Validar:**
 
-No existan totales sin pedido
+- No existan productos huérfanos  
+- No existan totales sin pedido  
+- No existan pedidos sin productos  
 
-No existan pedidos sin productos
+---
 
-🧾 Notas de Negocio
-El cálculo de impuestos debe ser consistente entre UI, API y SQL
+# 🧾 **7. Notas de Negocio**
 
-Los totales deben coincidir en todas las capas
+- El cálculo de impuestos debe ser consistente entre UI, API y SQL  
+- Los totales deben coincidir en todas las capas  
+- La integridad financiera es crítica en e‑commerce  
+- Los pedidos deben tener trazabilidad completa  
 
-La integridad financiera es crítica en e‑commerce
+---
 
-Los pedidos deben tener trazabilidad completa
+# 📸 **8. Evidencias**
+
