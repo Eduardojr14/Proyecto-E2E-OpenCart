@@ -1,5 +1,5 @@
 # 📄 **TC-Flujo-Registro.md**  
-### **Flujo de Registro (Crear Usuario Nuevo) – OpenCart E2E (UI + API + SQL)**  
+### **Flujo de Registro (Crear Usuario Nuevo) – OpenCart E2E (UI + SQL)**  
 **Autor:** Eduardo José Parra Perdomo  
 **Fecha:** 17/04/2026  
 
@@ -18,10 +18,9 @@
    - TC‑05 – Validación de formato de email  
    - TC‑06 – Validación de políticas de privacidad  
    - TC‑07 – Registro sin completar campos opcionales  
-5. Casos de Prueba API  
-6. Casos de Prueba SQL  
-7. Notas de Negocio  
-8. Evidencias  
+5. Casos de Prueba SQL  
+6. Notas de Negocio  
+7. Evidencias  
 
 ---
 
@@ -38,7 +37,6 @@ Validar que un usuario nuevo puede registrarse correctamente en OpenCart, que el
 - Validación de email duplicado  
 - Validación de políticas de privacidad  
 - Registro exitoso  
-- Validación API (si aplica)  
 - Validación SQL del nuevo usuario  
 
 ---
@@ -49,7 +47,6 @@ Validar que un usuario nuevo puede registrarse correctamente en OpenCart, que el
 - Navegador funcional  
 - Cookies limpias  
 - Email válido no registrado previamente  
-- Acceso a API REST (si se validará creación vía API)  
 - Acceso a base de datos MySQL  
 
 ---
@@ -175,32 +172,7 @@ Validar que un usuario nuevo puede registrarse correctamente en OpenCart, que el
 
 ---
 
-# 🔌 **5. Casos de Prueba API**  
-
----
-
-## 🟦 **API‑TC‑01 – Crear usuario vía API (si disponible)**
-
-**Validaciones:**
-
-- Código 201/200  
-- Usuario creado correctamente  
-- Email único  
-- Respuesta contiene ID del usuario  
-
----
-
-## 🟦 **API‑TC‑02 – Validar email duplicado vía API**
-
-**Validaciones:**
-
-- Código 400/409  
-- Mensaje de error  
-- No crea usuario duplicado  
-
----
-
-# 🗄️ **6. Casos de Prueba SQL**
+# 🗄️ **5. Casos de Prueba SQL**
 
 ---
 
@@ -255,7 +227,7 @@ WHERE c.email = '{EMAIL}';
 
 ---
 
-# 🧾 **7. Notas de Negocio**
+# 🧾 **6. Notas de Negocio**
 
 - El email debe ser único  
 - La contraseña debe cumplir requisitos mínimos  
@@ -265,5 +237,7 @@ WHERE c.email = '{EMAIL}';
 
 ---
 
-# 📸 **8. Evidencias**
+# 📸 **7. Evidencias**
+
+
 
