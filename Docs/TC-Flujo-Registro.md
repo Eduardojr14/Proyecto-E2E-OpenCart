@@ -1,254 +1,269 @@
-🧪 Casos de Prueba – Flujo de Registro (Crear Usuario Nuevo)
-Proyecto: OpenCart – Cypress E2E + API
-Autor: Eduardo José Parra Perdomo
-Fecha: 17/04/2026
+# 📄 **TC-Flujo-Registro.md**  
+### **Flujo de Registro (Crear Usuario Nuevo) – OpenCart E2E (UI + API + SQL)**  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-📘 Índice
-Objetivo del Flujo
+---
 
-Alcance
+# 📘 **Índice**
 
-Precondiciones
+1. Objetivo del Flujo  
+2. Alcance  
+3. Precondiciones  
+4. Casos de Prueba UI  
+   - TC‑01 – Acceso a la pantalla de Registro  
+   - TC‑02 – Registro exitoso  
+   - TC‑03 – Registro con email duplicado  
+   - TC‑04 – Validación de campos obligatorios  
+   - TC‑05 – Validación de formato de email  
+   - TC‑06 – Validación de políticas de privacidad  
+   - TC‑07 – Registro sin completar campos opcionales  
+5. Casos de Prueba API  
+6. Casos de Prueba SQL  
+7. Notas de Negocio  
+8. Evidencias  
 
-Casos de Prueba UI
+---
 
-TC-01 – Acceso a la pantalla de Registro
+# 🎯 **1. Objetivo del Flujo**
 
-TC-02 – Registro exitoso
-
-TC-03 – Registro con email duplicado
-
-TC-04 – Validación de campos obligatorios
-
-TC-05 – Validación de formato de email
-
-TC-06 – Validación de políticas de privacidad
-
-TC-07 – Registro sin completar campos opcionales
-
-Casos de Prueba API
-
-Casos de Prueba SQL
-
-Notas de Negocio
-
-Evidencias
-
-🎯 Objetivo del Flujo
 Validar que un usuario nuevo puede registrarse correctamente en OpenCart, que el sistema maneja errores como email duplicado o campos inválidos, y que el registro queda correctamente almacenado en la base de datos.
 
-📌 Alcance
-Acceso a la pantalla de registro
+---
 
-Validación de campos obligatorios
+# 📌 **2. Alcance**
 
-Validación de email duplicado
+- Acceso a la pantalla de registro  
+- Validación de campos obligatorios  
+- Validación de email duplicado  
+- Validación de políticas de privacidad  
+- Registro exitoso  
+- Validación API (si aplica)  
+- Validación SQL del nuevo usuario  
 
-Validación de políticas de privacidad
+---
 
-Registro exitoso
+# 🔧 **3. Precondiciones**
 
-Validación API (si aplica)
+- Acceso a OpenCart Demo  
+- Navegador funcional  
+- Cookies limpias  
+- Email válido no registrado previamente  
+- Acceso a API REST (si se validará creación vía API)  
+- Acceso a base de datos MySQL  
 
-Validación SQL del nuevo usuario
+---
 
-🔧 Precondiciones
-Acceso a OpenCart Demo
+# 🧪 **4. Casos de Prueba UI**
 
-Navegador funcional
+---
 
-Cookies limpias
+## 🟦 **TC‑01 – Acceso a la pantalla de Registro**
 
-Email válido no registrado previamente
+**Objetivo:** Validar que el usuario puede acceder a la pantalla de creación de cuenta.
 
-Acceso a API REST (si se validará creación vía API)
+**Pasos:**
 
-Acceso a base de datos MySQL
+1. Abrir la página principal  
+2. Seleccionar **My Account**  
+3. Seleccionar **Register**  
 
-🧪 Casos de Prueba UI
-🟦 TC-01 – Acceso a la pantalla de Registro
-Objetivo: Validar que el usuario puede acceder a la pantalla de creación de cuenta.
+**Validaciones:**
 
-Pasos
-Abrir la página principal
+- Título *Register Account* visible  
+- Formulario completo visible  
 
-Seleccionar “My Account”
+---
 
-Seleccionar “Register”
+## 🟦 **TC‑02 – Registro exitoso**
 
-Validaciones
-Título “Register Account” visible
+**Objetivo:** Validar que un usuario nuevo puede registrarse correctamente.
 
-Formulario completo visible
+**Pasos:**
 
-🟦 TC-02 – Registro exitoso
-Objetivo: Validar que un usuario nuevo puede registrarse correctamente.
+1. Completar todos los campos obligatorios  
+2. Aceptar políticas de privacidad  
+3. Hacer clic en **Continue**  
 
-Pasos
-Completar todos los campos obligatorios
+**Validaciones:**
 
-Aceptar políticas de privacidad
+- Mensaje: *Your Account Has Been Created!*  
+- Redirección a la página de éxito  
+- Usuario autenticado automáticamente  
 
-Hacer clic en “Continue”
+---
 
-Validaciones
-Mensaje: Your Account Has Been Created!
+## 🟦 **TC‑03 – Registro con email duplicado**
 
-Redirección a la página de éxito
+**Objetivo:** Validar que el sistema no permite registrar un email ya existente.
 
-Usuario autenticado automáticamente
+**Pasos:**
 
-🟦 TC-03 – Registro con email duplicado
-Objetivo: Validar que el sistema no permite registrar un email ya existente.
+1. Completar formulario con un email ya registrado  
+2. Aceptar políticas  
+3. Hacer clic en **Continue**  
 
-Pasos
-Completar formulario con un email ya registrado
+**Validaciones:**
 
-Aceptar políticas
+- Mensaje rojo: *Warning: E-Mail Address is already registered!*  
+- No crea cuenta nueva  
 
-Hacer clic en “Continue”
+---
 
-Validaciones
-Mensaje rojo: Warning: E-Mail Address is already registered!
+## 🟦 **TC‑04 – Validación de campos obligatorios**
 
-No crea cuenta nueva
+**Objetivo:** Validar que el sistema exige completar los campos requeridos.
 
-🟦 TC-04 – Validación de campos obligatorios
-Objetivo: Validar que el sistema exige completar los campos requeridos.
+**Campos obligatorios:**
 
-Campos obligatorios
-First Name
+- First Name  
+- Last Name  
+- Email  
+- Telephone  
+- Password  
+- Confirm Password  
 
-Last Name
+**Validaciones:**
 
-Email
+- Mensajes de error por campo vacío  
+- No permite continuar  
 
-Telephone
+---
 
-Password
+## 🟦 **TC‑05 – Validación de formato de email**
 
-Confirm Password
+**Objetivo:** Validar que el sistema detecta emails inválidos.
 
-Validaciones
-Mensajes de error por campo vacío
+**Casos:**
 
-No permite continuar
+- Email sin @  
+- Email sin dominio  
+- Email con caracteres inválidos  
 
-🟦 TC-05 – Validación de formato de email
-Objetivo: Validar que el sistema detecta emails inválidos.
+**Validaciones:**
 
-Casos
-email sin @
+- Mensaje de error  
+- No permite continuar  
 
-email sin dominio
+---
 
-email con caracteres inválidos
+## 🟦 **TC‑06 – Validación de políticas de privacidad**
 
-Validaciones
-Mensaje de error
+**Objetivo:** Validar que el usuario debe aceptar las políticas para registrarse.
 
-No permite continuar
+**Pasos:**
 
-🟦 TC-06 – Validación de políticas de privacidad
-Objetivo: Validar que el usuario debe aceptar las políticas para registrarse.
+1. Completar formulario  
+2. NO marcar la casilla de privacidad  
+3. Hacer clic en **Continue**  
 
-Pasos
-Completar formulario
+**Validaciones:**
 
-NO marcar la casilla de privacidad
+- Mensaje: *Warning: You must agree to the Privacy Policy!*  
+- No permite continuar  
 
-Hacer clic en “Continue”
+---
 
-Validaciones
-Mensaje: Warning: You must agree to the Privacy Policy!
+## 🟦 **TC‑07 – Registro sin completar campos opcionales**
 
-No permite continuar
+**Objetivo:** Validar que el sistema permite registrar usuario sin campos no obligatorios.
 
-🟦 TC-07 – Registro sin completar campos opcionales
-Objetivo: Validar que el sistema permite registrar usuario sin campos no obligatorios.
+**Validaciones:**
 
-Validaciones
-Registro exitoso
+- Registro exitoso  
+- No se requieren campos opcionales  
 
-No se requieren campos opcionales
+---
 
-🧪 Casos de Prueba API
-(OpenCart Demo no siempre expone endpoint de registro, pero documentamos el estándar profesional.)
+# 🔌 **5. Casos de Prueba API**  
 
-🟦 API-TC-01 – Crear usuario vía API (si disponible)
-Validaciones
+---
 
-Código 201/200
+## 🟦 **API‑TC‑01 – Crear usuario vía API (si disponible)**
 
-Usuario creado correctamente
+**Validaciones:**
 
-Email único
+- Código 201/200  
+- Usuario creado correctamente  
+- Email único  
+- Respuesta contiene ID del usuario  
 
-Respuesta contiene ID del usuario
+---
 
-🟦 API-TC-02 – Validar email duplicado vía API
-Validaciones
+## 🟦 **API‑TC‑02 – Validar email duplicado vía API**
 
-Código 400/409
+**Validaciones:**
 
-Mensaje de error
+- Código 400/409  
+- Mensaje de error  
+- No crea usuario duplicado  
 
-No crea usuario duplicado
+---
 
-🧪 Casos de Prueba SQL
-🟦 SQL-TC-01 – Validar creación del usuario
-sql
+# 🗄️ **6. Casos de Prueba SQL**
+
+---
+
+## 🟦 **SQL‑TC‑01 – Validar creación del usuario**
+
+```sql
 SELECT * 
 FROM oc_customer 
 WHERE email = '{EMAIL}';
-Validar:
+```
 
-firstname
+**Validar:**
 
-lastname
+- firstname  
+- lastname  
+- email  
+- telephone  
+- status = 1  
+- date_added correcta  
 
-email
+---
 
-telephone
+## 🟦 **SQL‑TC‑02 – Validar dirección por defecto (si aplica)**
 
-status = 1
-
-date_added correcta
-
-🟦 SQL-TC-02 – Validar dirección por defecto (si aplica)
-sql
+```sql
 SELECT * 
 FROM oc_address 
 WHERE customer_id = {CUSTOMER_ID};
-Validar:
+```
 
-country_id
+**Validar:**
 
-zone_id
+- country_id  
+- zone_id  
+- firstname / lastname coinciden  
 
-firstname/lastname coinciden
+---
 
-🟦 SQL-TC-03 – Validar integridad del registro
-sql
+## 🟦 **SQL‑TC‑03 – Validar integridad del registro**
+
+```sql
 SELECT c.customer_id, a.address_id
 FROM oc_customer c
 LEFT JOIN oc_address a ON c.address_id = a.address_id
 WHERE c.email = '{EMAIL}';
-Validar:
+```
 
-No existan registros huérfanos
+**Validar:**
 
-address_id asignado correctamente
+- No existan registros huérfanos  
+- `address_id` asignado correctamente  
 
-🧾 Notas de Negocio
-El email debe ser único
+---
 
-La contraseña debe cumplir requisitos mínimos
+# 🧾 **7. Notas de Negocio**
 
-El usuario debe aceptar políticas de privacidad
+- El email debe ser único  
+- La contraseña debe cumplir requisitos mínimos  
+- El usuario debe aceptar políticas de privacidad  
+- El registro debe crear un `customer_id` único  
+- El usuario debe quedar autenticado tras registrarse  
 
-El registro debe crear un customer_id único
+---
 
-El usuario debe quedar autenticado tras registrarse
+# 📸 **8. Evidencias**
 
-📸 Evidencias
