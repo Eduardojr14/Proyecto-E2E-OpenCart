@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 
 module.exports = defineConfig({
   e2e: {
@@ -9,8 +10,13 @@ module.exports = defineConfig({
     screenshotOnRunFailure: true,
     pageLoadTimeout: 120000,
     chromeWebSecurity: false,
+
     setupNodeEvents(on, config) {
-      // Aquí puedes agregar plugins si los necesitas
+      // Activar Allure
+      allureWriter(on, config);
+      return config;
     },
   },
 });
+
+

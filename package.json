@@ -5,15 +5,24 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "set ALLURE=1 && cypress run",
+    "allure:generate": "allure generate reports/allure-results --clean -o reports/allure-report",
+    "allure:open": "allure open reports/allure-report",
+    "test:allure": "npm run cypress:run && npm run allure:generate && npm run allure:open"
   },
-  "keywords": ["cypress", "e2e", "automation", "opencart"],
+  "keywords": [
+    "cypress",
+    "e2e",
+    "automation",
+    "opencart"
+  ],
   "author": "Eduardo Parra",
   "license": "ISC",
   "dependencies": {
     "cypress": "^15.13.0"
+  },
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.38.1"
   }
 }
-
-
-
