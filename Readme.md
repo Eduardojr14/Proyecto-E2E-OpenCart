@@ -96,7 +96,13 @@ PROYECTO-E2E-OPENCART/
 │   │
 │   └── api/                  ← Requests API (cy.request)
 │
+├── reports/                  ← Reportes (Mochawesome / Allure)
+│   ├── mochawesome-report/
+│   ├── allure-results/
+│   └── allure-report/
+│
 ├── docs/                     ← Documentación completa
+│   ├── README.md
 │   ├── Plan-de-Pruebas.md
 │   ├── TC-Flujo-Login.md
 │   ├── TC-Flujo-Registro.md
@@ -106,10 +112,15 @@ PROYECTO-E2E-OPENCART/
 │   ├── TC-Flujo-Checkout.md
 │   ├── TC-Flujo-API-Testing.md
 │   └── Diagramas/
+│       ├── Diagrama-POM.md
+│       ├── Diagrama-Checkout.md
+│       ├── Diagrama-Flujo-Pruebas.md
+│       └── Diagrama-Repo.md
 │
 ├── cypress.config.js
 ├── package.json
 └── README.md                 ← README principal
+
 
 ```
 
