@@ -1,219 +1,175 @@
-🧪 Casos de Prueba – Flujo de Login (Inicio de Sesión)
-Proyecto: OpenCart – Cypress E2E + API
-Autor: Eduardo José Parra Perdomo
-Fecha: 17/04/2026
+# 📄 **TC-Flujo-Login.md**  
+### **Flujo de Login (Inicio de Sesión) – OpenCart E2E (UI)**  
+**Proyecto:** OpenCart – Cypress E2E  
+**Autor:** Eduardo José Parra Perdomo  
+**Fecha:** 17/04/2026  
 
-📘 Índice
-Objetivo del Flujo
+---
 
-Alcance
+# 📘 **Índice**
 
-Precondiciones
+1. Objetivo del Flujo  
+2. Alcance  
+3. Precondiciones  
+4. Casos de Prueba UI  
+   - TC‑01 – Acceso a la pantalla de Login  
+   - TC‑02 – Login exitoso  
+   - TC‑03 – Login con contraseña incorrecta  
+   - TC‑04 – Login con usuario inexistente  
+   - TC‑05 – Validación de campos obligatorios  
+   - TC‑06 – Logout desde Login (flujo combinado)  
+5. Notas de Negocio  
+6. Evidencias  
 
-Casos de Prueba UI
+---
 
-TC-01 – Acceso a la pantalla de Login
+# 🎯 **1. Objetivo del Flujo**
 
-TC-02 – Login exitoso
+Validar que un usuario existente puede iniciar sesión correctamente en OpenCart, que el sistema maneja errores de autenticación y que la sesión se mantiene activa para flujos posteriores como:
 
-TC-03 – Login con contraseña incorrecta
+- Checkout  
+- Wishlist  
+- Historial de pedidos  
+- Validaciones UI  
 
-TC-04 – Login con usuario inexistente
+---
 
-TC-05 – Validación de campos obligatorios
+# 📌 **2. Alcance**
 
-TC-06 – Logout exitoso
+- Acceso a la pantalla de Login  
+- Validación de credenciales  
+- Manejo de errores  
+- Persistencia de sesión  
+- Logout (flujo combinado)  
 
-Casos de Prueba API
+---
 
-Casos de Prueba SQL
+# 🔧 **3. Precondiciones**
 
-Notas de Negocio
+- Usuario existente registrado previamente  
+- Acceso a OpenCart Demo  
+- Cookies limpias  
+- Navegador funcional  
 
-Evidencias
+---
 
-🎯 Objetivo del Flujo
-Validar que un usuario existente puede iniciar sesión correctamente en OpenCart, que el sistema maneja errores de autenticación y que la sesión se mantiene activa para flujos posteriores como checkout, historial de pedidos y validaciones SQL.
+# 🧪 **4. Casos de Prueba UI**
 
-📌 Alcance
-Acceso a la pantalla de Login
+---
 
-Validación de credenciales
+## 🟦 **TC‑01 – Acceso a la pantalla de Login**
 
-Manejo de errores
+**Objetivo:** Validar que el usuario puede acceder a la pantalla de inicio de sesión.
 
-Persistencia de sesión
+**Pasos:**
 
-Logout
+1. Abrir la página principal  
+2. Seleccionar **My Account**  
+3. Seleccionar **Login**  
 
-Validación API de autenticación (si aplica)
+**Validaciones:**
 
-🔧 Precondiciones
-Usuario existente registrado previamente
+- Título *Account Login* visible  
+- Formulario de email y password visible  
 
-Acceso a OpenCart Demo
+---
 
-Cookies limpias
+## 🟦 **TC‑02 – Login exitoso**
 
-Navegador funcional
+**Objetivo:** Validar que un usuario existente puede iniciar sesión correctamente.
 
-Acceso a API REST (si se validará autenticación vía API)
+**Pasos:**
 
-🧪 Casos de Prueba UI
-🟦 TC-01 – Acceso a la pantalla de Login
-Objetivo: Validar que el usuario puede acceder a la pantalla de inicio de sesión.
+1. Ingresar email válido  
+2. Ingresar contraseña válida  
+3. Hacer clic en **Login**  
 
-Pasos
-Abrir la página principal
+**Validaciones:**
 
-Seleccionar “My Account”
+- Redirección a *My Account*  
+- Nombre del usuario visible  
+- Menú de opciones disponible (Orders, Downloads, etc.)  
 
-Seleccionar “Login”
+---
 
-Validaciones
-Título “Account Login” visible
+## 🟦 **TC‑03 – Login con contraseña incorrecta**
 
-Formulario de email y password visible
+**Objetivo:** Validar que el sistema rechaza credenciales inválidas.
 
-🟦 TC-02 – Login exitoso
-Objetivo: Validar que un usuario existente puede iniciar sesión correctamente.
+**Pasos:**
 
-Pasos
-Ingresar email válido
+1. Ingresar email válido  
+2. Ingresar contraseña incorrecta  
+3. Hacer clic en **Login**  
 
-Ingresar contraseña válida
+**Validaciones:**
 
-Hacer clic en “Login”
+- Mensaje rojo: *Warning: No match for E-Mail Address and/or Password.*  
+- No inicia sesión  
+- Permanece en pantalla de Login  
 
-Validaciones
-Redirección a My Account
+---
 
-Nombre del usuario visible
+## 🟦 **TC‑04 – Login con usuario inexistente**
 
-Menú de opciones disponible (Orders, Downloads, etc.)
+**Objetivo:** Validar que el sistema maneja correctamente usuarios no registrados.
 
-🟦 TC-03 – Login con contraseña incorrecta
-Objetivo: Validar que el sistema rechaza credenciales inválidas.
+**Pasos:**
 
-Pasos
-Ingresar email válido
+1. Ingresar email inexistente  
+2. Ingresar cualquier contraseña  
+3. Hacer clic en **Login**  
 
-Ingresar contraseña incorrecta
+**Validaciones:**
 
-Hacer clic en “Login”
+- Mensaje de error  
+- No inicia sesión  
 
-Validaciones
-Mensaje rojo: Warning: No match for E-Mail Address and/or Password.
+---
 
-No inicia sesión
+## 🟦 **TC‑05 – Validación de campos obligatorios**
 
-Permanece en pantalla de Login
+**Objetivo:** Validar que el sistema exige email y contraseña.
 
-🟦 TC-04 – Login con usuario inexistente
-Objetivo: Validar que el sistema maneja correctamente usuarios no registrados.
+**Casos:**
 
-Pasos
-Ingresar email inexistente
+- Email vacío  
+- Contraseña vacía  
+- Ambos vacíos  
 
-Ingresar cualquier contraseña
+**Validaciones:**
 
-Hacer clic en “Login”
+- Mensajes de error  
+- No permite continuar  
 
-Validaciones
-Mensaje de error
+---
 
-No inicia sesión
+## 🟦 **TC‑06 – Logout desde Login (flujo combinado)**
 
-🟦 TC-05 – Validación de campos obligatorios
-Objetivo: Validar que el sistema exige email y contraseña.
+**Objetivo:** Validar que el usuario puede cerrar sesión correctamente después de iniciar sesión.
 
-Casos
-Email vacío
+**Pasos:**
 
-Contraseña vacía
+1. Iniciar sesión  
+2. Seleccionar **My Account**  
+3. Seleccionar **Logout**  
 
-Ambos vacíos
+**Validaciones:**
 
-Validaciones
-Mensajes de error
+- Mensaje: *You have been logged off*  
+- Botón **Continue** visible  
+- No permite acceder a páginas protegidas  
 
-No permite continuar
+---
 
-🟦 TC-06 – Logout exitoso
-Objetivo: Validar que el usuario puede cerrar sesión correctamente.
+# 🧾 **5. Notas de Negocio**
 
-Pasos
-Iniciar sesión
+- El login es obligatorio para completar checkout  
+- El sistema debe proteger datos sensibles  
+- Los mensajes de error deben ser claros  
+- La sesión debe persistir correctamente  
+- Intentos fallidos pueden bloquear temporalmente al usuario (según configuración)  
 
-Seleccionar “My Account”
+---
 
-Seleccionar “Logout”
-
-Validaciones
-Mensaje: You have been logged off
-
-Botón “Continue” visible
-
-No permite acceder a páginas protegidas
-
-🧪 Casos de Prueba API
-(OpenCart Demo no siempre expone login vía API, pero documentamos el estándar profesional.)
-
-🟦 API-TC-01 – Validar autenticación vía API (si disponible)
-Objetivo: Validar que el endpoint de autenticación responde correctamente.
-
-Validaciones
-Código 200 para credenciales válidas
-
-Código 401/403 para credenciales inválidas
-
-Token o session_id generado correctamente
-
-🟦 API-TC-02 – Validar acceso a recursos protegidos
-Objetivo: Validar que solo usuarios autenticados pueden acceder a endpoints privados.
-
-Validaciones
-Acceso permitido con token válido
-
-Acceso denegado sin token
-
-Acceso denegado con token inválido
-
-🧪 Casos de Prueba SQL
-(Aplica solo si el login genera registros de auditoría o sesiones.)
-
-🟦 SQL-TC-01 – Validar registro de sesión (si existe tabla)
-sql
-SELECT * 
-FROM oc_customer_login 
-WHERE email = '{EMAIL}'
-ORDER BY date_added DESC;
-Validar:
-
-Fecha de login
-
-IP
-
-Estado
-
-🟦 SQL-TC-02 – Validar intentos fallidos (si aplica)
-sql
-SELECT * 
-FROM oc_customer_login_attempts 
-WHERE email = '{EMAIL}';
-Validar:
-
-Número de intentos
-
-Fecha del último intento
-
-🧾 Notas de Negocio
-El login es obligatorio para completar checkout
-
-El sistema debe proteger datos sensibles
-
-Los mensajes de error deben ser claros
-
-La sesión debe persistir correctamente
-
-Intentos fallidos pueden bloquear temporalmente al usuario
+# 📸 **6. Evidencias**
