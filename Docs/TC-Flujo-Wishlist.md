@@ -1,5 +1,5 @@
 # 📄 **TC-Flujo-Wishlist.md**  
-### **Flujo Completo de Wishlist – OpenCart E2E (UI + API + SQL)**  
+### **Flujo Completo de Wishlist – OpenCart E2E (UI)**  
 **Autor:** Eduardo José Parra Perdomo  
 **Fecha:** 17/04/2026  
 
@@ -18,10 +18,8 @@
    - TC‑05 – Eliminar producto de Wishlist  
    - TC‑06 – Wishlist vacía  
    - TC‑07 – Agregar producto sin estar logueado  
-5. Casos de Prueba API  
-6. Casos de Prueba SQL  
-7. Notas de Negocio  
-8. Evidencias  
+5. Notas de Negocio  
+6. Evidencias  
 
 ---
 
@@ -33,7 +31,6 @@ Validar que un usuario puede:
 - Visualizar la Wishlist  
 - Eliminar productos  
 - Ver comportamiento cuando no está logueado  
-- Validar consistencia entre UI, API y SQL (si aplica)  
 
 ---
 
@@ -43,7 +40,7 @@ Validar que un usuario puede:
 - Wishlist desde detalle de producto  
 - Validación de mensajes  
 - Validación de estado de sesión  
-- Validación de integridad de datos  
+- Validación de integridad visual de datos  
 
 ---
 
@@ -52,7 +49,7 @@ Validar que un usuario puede:
 - Usuario registrado  
 - Usuario autenticado (excepto casos negativos)  
 - Producto disponible en catálogo  
-- Wishlist visible en el header  
+- Wishlist visible en el header (si aplica en la demo)  
 
 ---
 
@@ -84,12 +81,12 @@ Validar que un usuario puede:
 **Pasos:**
 
 1. Navegar a **Desktops**  
-2. Hacer clic en el ícono de corazón ❤️ en un producto  
+2. Hacer clic en el ícono de corazón ❤️  
 
 **Validaciones:**
 
 - Mensaje verde: *Success: You have added…*  
-- Contador de Wishlist incrementa  
+- Contador incrementa  
 - Producto aparece en la lista  
 
 ---
@@ -168,53 +165,15 @@ Validar que un usuario puede:
 
 ---
 
-# 🔌 **5. Casos de Prueba API**  
-
-## 🟦 **API‑TC‑01 – Agregar producto a Wishlist vía API**
-
-**Validaciones:**
-
-- Código 200  
-- Producto agregado  
-- Wishlist actualizada  
-
----
-
-## 🟦 **API‑TC‑02 – Obtener Wishlist vía API**
-
-**Validaciones:**
-
-- Lista de productos  
-- Precios  
-- Stock  
-
----
-
-# 🗄️ **6. Casos de Prueba SQL**  
-
-## 🟦 **SQL‑TC‑01 – Validar registro en tabla wishlist**
-
-```sql
-SELECT * 
-FROM oc_customer_wishlist 
-WHERE customer_id = {ID};
-```
-
-**Validaciones:**
-
-- `product_id` correcto  
-- `date_added` correcta  
-
----
-
-# 🧾 **7. Notas de Negocio**
+# 🧾 **5. Notas de Negocio**
 
 - Wishlist es un flujo de retención, no afecta stock  
 - Requiere usuario autenticado  
 - No afecta totales del carrito  
-- Es un flujo clave para e‑commerce real  
+- No genera registros en BD en tu demo  
+- No tiene API en tu entorno  
 
 ---
 
-# 📸 **8. Evidencias**
+# 📸 **6. Evidencias**
 
