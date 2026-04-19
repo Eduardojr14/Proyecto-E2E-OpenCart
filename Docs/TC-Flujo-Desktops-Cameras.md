@@ -1,4 +1,3 @@
-
 📄 TC-Flujo-Desktops-Cameras.md
 Casos de Prueba – Flujo: Agregar productos al carrito, validar impuestos y navegar al checkout
 Proyecto: OpenCart E2E – Cypress + POM Autor: Eduardo José Parra Perdomo
@@ -109,4 +108,5 @@ o	Delivery Details
 o	Delivery Method
 o	Payment Method
 o	Confirm Order
+
 
