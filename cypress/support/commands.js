@@ -7,13 +7,13 @@
 // -------------------------------
 // 🔐 LOGIN
 // -------------------------------
-
-// Login por UI (flujo visible)
-Cypress.Commands.add('loginUI', (username, password) => {
-  cy.get('[data-testid="input-username"]').type(username)
-  cy.get('[data-testid="input-password"]').type(password)
-  cy.get('[data-testid="btn-login"]').click()
+Cypress.Commands.add('loginE2E', (email, password) => {
+  cy.visit('/index.php?route=account/login')
+  cy.get('#input-email').type(email)
+  cy.get('#input-password').type(password)
+  cy.get('input[type="submit"]').click()
 })
+
 
 // Login por API (rápido y estable)
 Cypress.Commands.add('loginAPI', (email, password) => {
