@@ -1,0 +1,37 @@
+name: Cypress E2E Tests OpenCart
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        # Usamos tu script automatizado
+        run: npm run test:run
+        continue-on-error: true # Para que el pipeline no se detenga si un test falla y pueda generar el reporte
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v4
+        if: always() # Se sube aunque fallen los tests
+        with:
+          name: mochawesome-report
+          path: reports/final-html/
+          retention-days: 30
+
+      - name: Upload Videos
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos/
