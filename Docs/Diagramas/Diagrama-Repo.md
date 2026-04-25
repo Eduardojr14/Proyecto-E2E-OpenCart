@@ -1,6 +1,7 @@
 # 🗂️ **Diagrama Visual del Repositorio – Proyecto OpenCart (Cypress E2E + API + SQL)**  
 **Autor:** Eduardo José Parra Perdomo  
 **Fecha:** 17/04/2026  
+**Versión:** 1.2 (Actualizada)
 
 ---
 
@@ -10,8 +11,9 @@ Representar visualmente la **estructura completa del repositorio**, mostrando:
 
 - Organización del framework Cypress  
 - Arquitectura Page Object Model (POM)  
-- Ubicación de tests UI, API y SQL  
-- Carpeta de reportes (Mochawesome / Allure)  
+- Ubicación de tests UI, API y validaciones SQL  
+- Carpeta de reportes (Mochawesome)  
+- Pipeline CI/CD  
 - Documentación técnica  
 - Archivos raíz del proyecto  
 
@@ -19,7 +21,7 @@ Este diagrama permite entender de forma rápida cómo está construido el proyec
 
 ---
 
-## 🗂️ **Diagrama del Repositorio**
+## 🗂️ **Diagrama del Repositorio (Actualizado)**
 
 ```
 PROYECTO-E2E-OPENCART/
@@ -32,7 +34,7 @@ PROYECTO-E2E-OPENCART/
 │   │   ├── wishlist/
 │   │   ├── cart/
 │   │   ├── checkout/
-│   │   └── api/
+│   │   └── api/                     ← Tests API reales (productos, carrito, totales, stock, pedidos)
 │   │
 │   ├── pages/                       ← Page Object Model (POM)
 │   │   ├── HomePage.js
@@ -47,14 +49,14 @@ PROYECTO-E2E-OPENCART/
 │   ├── fixtures/                    ← Datos de prueba
 │   ├── support/
 │   │   ├── commands.js              ← Custom Commands
-│   │   └── e2e.js
+│   │   └── e2e.js                   ← Configuración global
 │   │
 │   └── api/                         ← Requests API (cy.request)
 │
-├── reports/                         ← Reportes automáticos
-│   ├── mochawesome-report/          ← HTML + JSON
-│   ├── allure-results/              ← Resultados Allure
-│   └── allure-report/               ← Reporte final Allure
+├── reports/                         ← Reportes automáticos (CI/CD)
+│   ├── mochawesome/                 ← JSON individuales por test
+│   ├── final-html/                  ← Reporte HTML final (reporte-final.html)
+│   └── full-report.json             ← Merge de todos los JSON
 │
 ├── docs/                            ← Documentación completa
 │   ├── README.md                    ← Índice general
@@ -72,20 +74,32 @@ PROYECTO-E2E-OPENCART/
 │       ├── Diagrama-Flujo-Pruebas.md
 │       └── Diagrama-Repo.md         ← Este archivo
 │
-├── cypress.config.js
-├── package.json
-└── README.md                        ← README principal
+├── .github/
+│   └── workflows/
+│       └── cypress.yml              ← Pipeline CI/CD (GitHub Actions)
+│
+├── cypress.config.js                ← Configuración Cypress + Mochawesome
+├── package.json                     ← Dependencias + scripts
+└── README.md                        ← README principal del proyecto
 ```
 
 ---
 
-## 📝 **Notas Técnicas**
+## 📝 **Notas Técnicas (Actualizadas)**
 
-- La estructura sigue el estándar profesional de Cypress + POM.  
-- Los tests están organizados por **módulos funcionales**.  
-- Los Page Objects encapsulan la lógica de interacción.  
-- La carpeta `reports/` permite integrar CI/CD y publicar reportes.  
-- La carpeta `docs/` contiene toda la documentación del proyecto.  
-- El diagrama es ideal para incluir en presentaciones o entrevistas técnicas.  
+- La estructura sigue el estándar profesional de **Cypress + POM + API Testing**.  
+- Los tests están organizados por **módulos funcionales**, facilitando escalabilidad.  
+- Los Page Objects encapsulan la lógica de interacción para mejorar mantenibilidad.  
+- La carpeta `reports/` contiene:
+  - JSON individuales  
+  - Merge (`full-report.json`)  
+  - Reporte HTML final  
+- El pipeline CI/CD ejecuta:
+  - Cypress headless  
+  - Merge de reportes  
+  - Generación HTML  
+  - Publicación de artefactos  
+- La carpeta `docs/` contiene toda la documentación funcional, técnica y visual.  
+- Este diagrama es ideal para presentaciones, entrevistas técnicas y portafolio profesional.  
 
 ---

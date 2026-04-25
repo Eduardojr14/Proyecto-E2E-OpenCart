@@ -1,7 +1,7 @@
 # 🧪 **PLAN DE PRUEBAS – Proyecto OpenCart (Cypress E2E + API + SQL)**  
 **Autor:** Eduardo José Parra Perdomo  
 **Fecha:** 17/04/2026  
-**Versión:** 1.1 (Corregida)
+**Versión:** **1.2 (Actualizada con SQL + CI/CD)**
 
 ---
 
@@ -13,7 +13,8 @@ Definir la estrategia, alcance, tipos de pruebas, criterios y recursos necesario
 - Pruebas **API REST** (solo para módulos que realmente exponen endpoints)  
 - Validaciones **SQL** (solo para módulos que registran datos en BD)  
 - Integración **UI + API + SQL** en flujos críticos  
-- Automatización con **Cypress** bajo arquitectura **POM**
+- Automatización con **Cypress** bajo arquitectura **POM**  
+- Ejecución continua mediante **Pipeline CI/CD (GitHub Actions)**  
 
 El objetivo es garantizar la calidad funcional, técnica y financiera del e‑commerce.
 
@@ -27,7 +28,8 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 - Validación de endpoints API reales (productos, carrito, totales, stock, pedidos)  
 - Validación de integridad en base de datos (registro, carrito, pedidos)  
 - Automatización completa de los flujos documentados  
-- Reportes de ejecución  
+- Reportes de ejecución (Mochawesome)  
+- Ejecución en CI/CD  
 
 ### ❌ No incluye:
 - API para Login, Registro, Wishlist o Búsqueda (no existen en la demo)  
@@ -61,11 +63,11 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 
 ### 🔵 **SQL (solo módulos reales)**
 - Registro de usuario  
-- Carrito (si aplica)  
 - Pedido  
 - Productos del pedido  
 - Totales financieros  
 - Stock descontado  
+- Auditoría del pedido  
 
 ---
 
@@ -88,8 +90,8 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 | Node.js     | Entorno de ejecución |
 | Mocha + Chai | Aserciones |
 | MySQL       | Validaciones SQL |
-| Mochawesome / Allure | Reportes |
-| GitHub      | Control de versiones |
+| Mochawesome | Reportes |
+| GitHub Actions | CI/CD |
 
 ---
 
@@ -112,10 +114,21 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 - Tests independientes  
 - Limpieza de sesión  
 - Idempotencia  
+- Pipeline CI/CD ejecutando en cada push  
 
 ---
 
-## 📊 **7. Estimación de Casos de Pruebas**
+## 📝 **7. Nota sobre Validaciones SQL e Integridad de Datos**
+
+*"Las validaciones de base de datos (SQL) incluidas en este proyecto han sido diseñadas y documentadas siguiendo la lógica de negocio de OpenCart.  
+Dado que el entorno de pruebas es una demo pública, no se cuenta con credenciales de acceso directo al servidor MySQL externo.
+
+Sin embargo, se han estructurado los casos de prueba SQL para demostrar el dominio técnico en la verificación de integridad financiera, persistencia de registros de clientes y auditoría de pedidos.  
+En un entorno corporativo (Staging/Dev), estas consultas se integrarían directamente en el pipeline mediante comandos de Cypress o tareas de Node.js para un chequeo de calidad 360° (UI + API + DB)."*
+
+---
+
+## 📊 **8. Estimación de Casos de Pruebas**
 
 | Flujo | Casos |
 |-------|-------|
@@ -133,12 +146,13 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 
 ---
 
-## 🎯 **8. Criterios de Aceptación**
+## 🎯 **9. Criterios de Aceptación**
 
 ### ✔ **Inicio**
 - Ambiente disponible  
 - Datos de prueba cargados  
 - Cypress configurado  
+- Pipeline CI/CD operativo  
 
 ### ✔ **Finalización**
 - Todos los tests ejecutados  
@@ -149,42 +163,46 @@ El objetivo es garantizar la calidad funcional, técnica y financiera del e‑co
 
 ---
 
-## 🟥 **9. Criterios de Salida**
+## 🟥 **10. Criterios de Salida**
 
 - 0 defectos críticos  
 - 0 defectos bloqueantes  
 - 95% de casos automatizados ejecutados con éxito  
 - Validación SQL correcta  
 - Totales financieros correctos  
+- Pipeline CI/CD completado sin fallos  
 
 ---
 
-## 🟦 **10. Riesgos**
+## 🟦 **11. Riesgos**
 
 - Cambios en la UI pueden romper selectores  
 - Inestabilidad del ambiente demo  
 - Datos inconsistentes en API  
 - Latencia en BD  
+- Limitaciones del entorno demo (sin acceso real a MySQL)  
 
 ---
 
-## 🟩 **11. Mitigaciones**
+## 🟩 **12. Mitigaciones**
 
 - Selectores estables  
 - Retries inteligentes  
 - Intercepts para controlar API  
-- Validaciones SQL con tolerancia  
+- Validaciones SQL simuladas con lógica real  
+- Ejecución en CI/CD para detectar regresiones temprano  
 
 ---
 
-## 📁 **12. Entregables**
+## 📁 **13. Entregables**
 
 - Código Cypress  
 - Page Objects  
 - Tests UI + API + SQL  
-- Reportes Mochawesome / Allure  
+- Reportes Mochawesome  
+- Pipeline CI/CD  
 - Documentación `/docs`  
 - Diagramas visuales  
 - Plan de Pruebas (este documento)  
 
-
+---
