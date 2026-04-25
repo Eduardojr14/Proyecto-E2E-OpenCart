@@ -1,0 +1,435 @@
+{
+  "stats": {
+    "suites": 9,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-25T20:37:32.442Z",
+    "end": "2026-04-25T20:37:35.065Z",
+    "duration": 2623,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ad5c4eaf-965c-4ab4-a832-c0a73abd0fbf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\api_full_suite.cy.js",
+      "file": "cypress\\e2e\\api\\api_full_suite.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fd68b499-7c6c-49b2-9acc-7afd00007567",
+          "title": "Suite Integral de API Testing - OpenCart (Full Coverage)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9d0fda94-2079-439e-adec-d35ec7c793ab",
+              "title": "Sección 1 – Productos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-01 & 02: Obtener lista y producto por ID",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 1 – Productos API-TC-01 & 02: Obtener lista y producto por ID",
+                  "timedOut": null,
+                  "duration": 1312,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request('GET', '/index.php?route=product/search&search=iPhone').then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body).to.not.be.null;\n});",
+                  "err": {},
+                  "uuid": "dd3d6cd2-4391-4ef8-ada1-b56613b7cacb",
+                  "parentUUID": "9d0fda94-2079-439e-adec-d35ec7c793ab",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "API-TC-03: Validar consistencia UI vs API",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 1 – Productos API-TC-03: Validar consistencia UI vs API",
+                  "timedOut": null,
+                  "duration": 42,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Lógica para comparar datos (Precio, Stock, Reward Points)",
+                  "err": {},
+                  "uuid": "0ab87bf6-963f-4d42-854f-8a4346d999a7",
+                  "parentUUID": "9d0fda94-2079-439e-adec-d35ec7c793ab",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "dd3d6cd2-4391-4ef8-ada1-b56613b7cacb",
+                "0ab87bf6-963f-4d42-854f-8a4346d999a7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1354,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "cfe6cc4e-e929-4bf5-83c4-f6e99310a667",
+              "title": "Sección 2 – Carrito",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-04 al 07: CRUD completo del Carrito",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 2 – Carrito API-TC-04 al 07: CRUD completo del Carrito",
+                  "timedOut": null,
+                  "duration": 18,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Crear -> Agregar -> Obtener -> Eliminar",
+                  "err": {},
+                  "uuid": "a3a6283f-37bc-40a2-aad6-c1a0c6601e4d",
+                  "parentUUID": "cfe6cc4e-e929-4bf5-83c4-f6e99310a667",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a3a6283f-37bc-40a2-aad6-c1a0c6601e4d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 18,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "73abdb9d-444a-4413-99ec-bf2dbc118bcf",
+              "title": "Sección 3 – Totales",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-08: Validar cálculo de Subtotal, Eco Tax, VAT y Total",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 3 – Totales API-TC-08: Validar cálculo de Subtotal, Eco Tax, VAT y Total",
+                  "timedOut": null,
+                  "duration": 13,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Validación financiera",
+                  "err": {},
+                  "uuid": "6967e455-cc74-4ad8-ae88-18bbb050af91",
+                  "parentUUID": "73abdb9d-444a-4413-99ec-bf2dbc118bcf",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6967e455-cc74-4ad8-ae88-18bbb050af91"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 13,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "258d5977-4081-4cc3-8b59-99cb37ce2a0e",
+              "title": "Sección 4 – Stock",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-09 & 10: Validación de inventario pre y post pedido",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 4 – Stock API-TC-09 & 10: Validación de inventario pre y post pedido",
+                  "timedOut": null,
+                  "duration": 26,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Verificar que el stock disminuya tras una compra",
+                  "err": {},
+                  "uuid": "b394fa48-c3c0-43f6-9055-7ebf40d99440",
+                  "parentUUID": "258d5977-4081-4cc3-8b59-99cb37ce2a0e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b394fa48-c3c0-43f6-9055-7ebf40d99440"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 26,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "34b077cd-f6c6-4888-beb1-a9f0c879ebb4",
+              "title": "Sección 5 – Pedidos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-11 al 13: Creación y consistencia API vs SQL",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 5 – Pedidos API-TC-11 al 13: Creación y consistencia API vs SQL",
+                  "timedOut": null,
+                  "duration": 20,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Generar Order ID y validar integridad",
+                  "err": {},
+                  "uuid": "3f404a7d-4fb6-44ed-bb2c-16b0b615dbd7",
+                  "parentUUID": "34b077cd-f6c6-4888-beb1-a9f0c879ebb4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3f404a7d-4fb6-44ed-bb2c-16b0b615dbd7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 20,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "3400d865-ac3d-42bc-aaf6-f203141846d1",
+              "title": "Sección 6 – Casos Negativos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-14 al 16: Productos inexistentes y falta de stock",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 6 – Casos Negativos API-TC-14 al 16: Productos inexistentes y falta de stock",
+                  "timedOut": null,
+                  "duration": 12,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Validar errores 400/404/409",
+                  "err": {},
+                  "uuid": "bc00635b-56a2-4608-919e-f7873d0f4366",
+                  "parentUUID": "3400d865-ac3d-42bc-aaf6-f203141846d1",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bc00635b-56a2-4608-919e-f7873d0f4366"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 12,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "aeefd55a-7982-43dd-88db-fc2b1a45a0d8",
+              "title": "Sección 7 – Performance",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API-TC-17 & 18: Tiempos de respuesta (SLA < 500ms)",
+                  "fullTitle": "Suite Integral de API Testing - OpenCart (Full Coverage) Sección 7 – Performance API-TC-17 & 18: Tiempos de respuesta (SLA < 500ms)",
+                  "timedOut": null,
+                  "duration": 319,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Agregamos el .then((res) => para capturar la respuesta\ncy.request('GET', '/index.php?route=product/search&search=iPhone').then(res => {\n  // Ahora sí podemos acceder a res.duration\n  expect(res.duration).to.be.lessThan(500);\n  expect(res.status).to.eq(200);\n});",
+                  "err": {},
+                  "uuid": "a4ba3765-a322-46ec-bde5-08743da2a105",
+                  "parentUUID": "aeefd55a-7982-43dd-88db-fc2b1a45a0d8",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a4ba3765-a322-46ec-bde5-08743da2a105"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 319,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8c3b35a6-263f-44a3-9e38-6a886be80902",
+          "title": "Sección 8 – Seguridad",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "API-TC-19: Acceso sin API Key",
+              "fullTitle": "Sección 8 – Seguridad API-TC-19: Acceso sin API Key",
+              "timedOut": null,
+              "duration": 288,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: '/index.php?route=api/order/add',\n  failOnStatusCode: false\n}).then(res => {\n  // Validación híbrida: Status Code o Mensaje de Error\n  if (res.status === 200) {\n    expect(res.body.error).to.exist;\n  } else {\n    expect(res.status).to.be.oneOf([401, 403]);\n  }\n});",
+              "err": {},
+              "uuid": "a5f007bf-84fb-41e2-90d7-6cfee0b9bab9",
+              "parentUUID": "8c3b35a6-263f-44a3-9e38-6a886be80902",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "API-TC-20: Acceso con API Key inválida",
+              "fullTitle": "Sección 8 – Seguridad API-TC-20: Acceso con API Key inválida",
+              "timedOut": null,
+              "duration": 309,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: '/index.php?route=api/login',\n  body: {\n    key: 'invalid_key_123'\n  },\n  failOnStatusCode: false\n}).then(res => {\n  const bodyString = JSON.stringify(res.body);\n  // Ahora buscamos 'Notice' (que es lo que el servidor envió) o 'error'\n  expect(bodyString).to.match(/Notice|error|Warning/i);\n});",
+              "err": {},
+              "uuid": "4d959ffc-fd3b-4e2b-86f6-ce3d0babcef0",
+              "parentUUID": "8c3b35a6-263f-44a3-9e38-6a886be80902",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a5f007bf-84fb-41e2-90d7-6cfee0b9bab9",
+            "4d959ffc-fd3b-4e2b-86f6-ce3d0babcef0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 597,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

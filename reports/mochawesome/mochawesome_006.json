@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-25T20:37:37.732Z",
+    "end": "2026-04-25T20:37:40.277Z",
+    "duration": 2545,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ec58ad05-630c-4d48-9832-1d7c4c103eac",
+      "title": "",
+      "fullFile": "cypress\\e2e\\smoke\\test-smoke.cy.js",
+      "file": "cypress\\e2e\\smoke\\test-smoke.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "20a92ed1-24d6-4e44-b80e-1c4a4bc0986c",
+          "title": "Smoke Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Carga la página principal",
+              "fullTitle": "Smoke Test Carga la página principal",
+              "timedOut": null,
+              "duration": 2511,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.contains('Your Store').should('be.visible');",
+              "err": {},
+              "uuid": "e698cc8a-bb6b-416a-9a57-c8a04d5d5a5f",
+              "parentUUID": "20a92ed1-24d6-4e44-b80e-1c4a4bc0986c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e698cc8a-bb6b-416a-9a57-c8a04d5d5a5f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2511,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
