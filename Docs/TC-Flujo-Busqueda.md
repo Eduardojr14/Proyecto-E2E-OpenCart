@@ -222,8 +222,7 @@ Validar que el usuario puede buscar productos correctamente utilizando el buscad
 ---
 
 # 🗄️ **6. Casos de Prueba SQL (si aplica)**  
-*(Solo si quieres validar coincidencias en BD.)*
-
+"Para validar el SQL-TC-01, se diseñó una consulta que verifica la concordancia entre la tabla oc_product_description y los resultados de la UI. En un entorno real, ejecutaríamos esta query mediante un cy.task('queryDb') para asegurar que el motor de búsqueda del e-commerce no está omitiendo productos indexados o mostrando productos desactivados (status = 0)."
 ---
 
 ## 🟦 **SQL‑TC‑01 – Validar búsqueda por nombre**

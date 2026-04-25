@@ -38,4 +38,34 @@ describe('Flujo de Registro - OpenCart', () => {
             .should('be.visible')
             .and('contain', 'Warning: You must agree to the Privacy Policy!');
     });
+
+    it('TC-04: Validación de campos obligatorios (Vacíos)', () => {
+        // Simplemente hacemos clic en continuar sin llenar nada
+        registerPage.elements.continueBtn().click();
+
+        // Validamos que aparezcan los mensajes de error en los campos
+        registerPage.elements.firstNameError().should('be.visible').and('contain', 'First Name must be');
+        registerPage.elements.emailError().should('be.visible');
+        registerPage.elements.errorAlert().should('contain', 'Warning');
+    });
+
+    it('TC-03: Registro con email duplicado', () => {
+        // Usamos un email que ya registramos en el TC-02 o uno fijo
+        registerPage.llenarFormulario({
+            nombre: 'Eduardo',
+            apellido: 'Parra',
+            email: 'eduardo_test_fijo@mail.com', // Asegúrate de haberlo usado antes
+            tel: '123456789',
+            pass: 'Test1234!',
+            acceptPolicy: true
+        });
+
+        registerPage.elements.errorAlert()
+            .should('be.visible')
+            .and('contain', 'Warning: E-Mail Address is already registered!');
+    });
 });
+
+
+
+    
