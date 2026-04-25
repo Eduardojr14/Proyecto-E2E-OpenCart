@@ -250,6 +250,6 @@ WHERE address_id = (
 
 ---
 
-# 📸 **7. Evidencias**
+
 
 

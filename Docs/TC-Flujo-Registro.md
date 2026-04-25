@@ -237,7 +237,6 @@ WHERE c.email = '{EMAIL}';
 
 ---
 
-# 📸 **7. Evidencias**
 
 
 

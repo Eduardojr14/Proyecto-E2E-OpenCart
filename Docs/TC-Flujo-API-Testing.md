@@ -340,5 +340,4 @@ Validar la funcionalidad completa de la API REST de OpenCart, asegurando:
 
 ---
 
-# 📸 **6. Evidencias**
 

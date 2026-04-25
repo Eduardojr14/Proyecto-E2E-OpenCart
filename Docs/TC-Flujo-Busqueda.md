@@ -248,5 +248,5 @@ WHERE name LIKE '%{SEARCH}%';
 
 ---
 
-# 📸 **8. Evidencias**
+
 

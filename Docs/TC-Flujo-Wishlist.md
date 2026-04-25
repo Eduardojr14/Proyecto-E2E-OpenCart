@@ -175,5 +175,5 @@ Validar que un usuario puede:
 
 ---
 
-# 📸 **6. Evidencias**
+
 

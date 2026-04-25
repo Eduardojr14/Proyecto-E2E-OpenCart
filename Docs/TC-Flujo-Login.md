@@ -172,4 +172,4 @@ Validar que un usuario existente puede iniciar sesión correctamente en OpenCart
 
 ---
 
-# 📸 **6. Evidencias**
+
