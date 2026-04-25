@@ -20,3 +20,23 @@ class CartPage {
 }
 
 export const cartPage = new CartPage();
+
+class CartPage {
+    elements = {
+        inputCantidad: () => cy.get('input[name*="quantity"]'),
+        btnActualizar: () => cy.get('button[data-original-title="Update"]'),
+        btnEliminar: () => cy.get('button[data-original-title="Remove"]'),
+        mensajeVacio: () => cy.get('#content p').contains('Your shopping cart is empty!'),
+        alertSuccess: () => cy.get('.alert-success')
+    }
+
+    actualizarCantidad(nuevaCantidad) {
+        this.elements.inputCantidad().clear().type(nuevaCantidad);
+        this.elements.btnActualizar().click();
+    }
+
+    eliminarProducto() {
+        this.elements.btnEliminar().click();
+    }
+}
+export const cartPage = new CartPage();
