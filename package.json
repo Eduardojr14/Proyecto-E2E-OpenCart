@@ -4,11 +4,13 @@
   "description": "Proyecto de automatización E2E + API Testing con Cypress para OpenCart",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:run": "set ALLURE=1 && cypress run",
-    "allure:generate": "allure generate reports/allure-results --clean -o reports/allure-report",
-    "allure:open": "allure open reports/allure-report",
-    "test:allure": "npm run cypress:run && npm run allure:generate && npm run allure:open"
+  "cypress:open": "cypress open",
+  "clean:reports": "npx rimraf reports",
+  "pretest:run": "npm run clean:reports",
+  "test:run": "cypress run",
+  "posttest:run": "npm run report:merge && npm run report:generate",
+  "report:merge": "npx mochawesome-merge reports/mochawesome/*.json > reports/full-report.json",
+  "report:generate": "npx marge reports/full-report.json -f index -o reports/final-html"
   },
   "keywords": [
     "cypress",
@@ -22,7 +24,9 @@
     "cypress": "^15.13.0"
   },
   "devDependencies": {
-    "@shelex/cypress-allure-plugin": "^2.41.2",
-    "allure-commandline": "^2.38.1"
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "rimraf": "^5.0.0"
   }
 }
