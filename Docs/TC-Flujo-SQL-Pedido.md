@@ -21,7 +21,7 @@
    - SQL‑TC‑07 – Validar dirección de facturación  
    - SQL‑TC‑08 – Validar dirección de envío  
 6. Notas de Negocio  
-7. Evidencias  
+
 
 ---
 

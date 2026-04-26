@@ -18,7 +18,6 @@
    - TC‑04 – Validar acceso restringido tras logout  
    - TC‑05 – Validar comportamiento del carrito  
 5. Notas de Negocio  
-6. Evidencias  
 
 ---
 

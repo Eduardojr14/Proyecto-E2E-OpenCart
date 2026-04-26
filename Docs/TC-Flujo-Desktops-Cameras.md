@@ -7,15 +7,15 @@
 
 ## 📘 Índice
 
-1. [TC-01 – Navegación a Desktops → Show All Desktops](#tc-01--navegación-a-desktops--show-all-desktops)  
-2. [TC-02 – Selección del producto HP LP3065](#tc-02--selección-del-producto-hp-lp3065)  
-3. [TC-03 – Agregar HP LP3065 al carrito](#tc-03--agregar-hp-lp3065-al-carrito)  
-4. [TC-04 – Navegación a Cameras](#tc-04--navegación-a-cameras)  
-5. [TC-05 – Selección del producto Canon EOS 5D](#tc-05--selección-del-producto-canon-eos-5d)  
-6. [TC-06 – Agregar Canon EOS 5D al carrito](#tc-06--agregar-canon-eos-5d-al-carrito)  
-7. [TC-07 – Validación de productos en el carrito](#tc-07--validación-de-productos-en-el-carrito)  
-8. [TC-08 – Validación de cálculos de impuestos y totales](#tc-08--validación-de-cálculos-de-impuestos-y-totales)  
-9. [TC-09 – Validación de la pantalla de Checkout](#tc-09--validación-de-la-pantalla-de-checkout)  
+1. [TC-01 – Navegación a Desktops → Show All Desktops]  
+2. [TC-02 – Selección del producto HP LP3065]
+3. [TC-03 – Agregar HP LP3065 al carrito]  
+4. [TC-04 – Navegación a Cameras]
+5. [TC-05 – Selección del producto Canon EOS 5D]
+6. [TC-06 – Agregar Canon EOS 5D al carrito]
+7. [TC-07 – Validación de productos en el carrito]
+8. [TC-08 – Validación de cálculos de impuestos y totales]
+9. [TC-09 – Validación de la pantalla de Checkout] 
 
 ---
 

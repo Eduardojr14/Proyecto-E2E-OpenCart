@@ -19,7 +19,7 @@
    - TC‑05 – Validación de campos obligatorios  
    - TC‑06 – Logout desde Login (flujo combinado)  
 5. Notas de Negocio  
-6. Evidencias  
+ 
 
 ---
 

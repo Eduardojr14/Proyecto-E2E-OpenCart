@@ -21,7 +21,7 @@
    - Sección 7 – Performance  
    - Sección 8 – Seguridad  
 5. Notas de Negocio  
-6. Evidencias  
+ 
 
 ---
 

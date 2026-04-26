@@ -24,7 +24,7 @@
 5. Casos de Prueba API (si aplica)  
 6. Casos de Prueba SQL (si aplica)  
 7. Notas de Negocio  
-8. Evidencias  
+  
 
 ---
 

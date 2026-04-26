@@ -19,7 +19,7 @@
    - TC‑06 – Wishlist vacía  
    - TC‑07 – Agregar producto sin estar logueado  
 5. Notas de Negocio  
-6. Evidencias  
+
 
 ---
 

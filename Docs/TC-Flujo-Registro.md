@@ -20,7 +20,6 @@
    - TC‑07 – Registro sin completar campos opcionales  
 5. Casos de Prueba SQL  
 6. Notas de Negocio  
-7. Evidencias  
 
 ---
 
